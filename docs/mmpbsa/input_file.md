@@ -205,7 +205,7 @@ combined. See the formats below:
 
 #### **Basic input options**
 
-`sys_name` (Default = None)
+[`sys_name`](#mmpbsa_ifv_sys_name){#mmpbsa_ifv_sys_name} (Default = None)
 :   Define the System Name. This is useful when trying to analyze several systems at the same time or calculating 
 the correlation between the predicted and the experimental energies. If the name is not defined, one will be assigned 
 when loading the system in `gmx_MMPBSA_ana` on a first-come, first-served basis.
@@ -214,21 +214,21 @@ when loading the system in `gmx_MMPBSA_ana` on a first-come, first-served basis.
         The definition of the system name is entirely optional, however it can provide a better clarity during 
         the results analysis. All files associated with this system will be saved using its name.
 
-`startframe` (Default = 1)
+[`startframe`](#mmpbsa_ifv_startframe){#mmpbsa_ifv_startframe} (Default = 1)
 :   The frame from which to begin extracting snapshots from the full, concatenated trajectory comprised of
 every trajectory file placed on the command-line. This is always the first frame read.
 
-`endframe` (Default = 9999999)
+[`endframe`](#mmpbsa_ifv_endframe){#mmpbsa_ifv_endframe} (Default = 9999999)
 :   The frame from which to stop extracting snapshots from the full, concatenated trajectory comprised of every
 trajectory file supplied on the command-line.
 
-`interval` (Default = 1)
+[`interval`](#mmpbsa_ifv_interval){#mmpbsa_ifv_interval} (Default = 1)
 :   The offset from which to choose frames from each trajectory file. For example, an interval of 2 will pull
 every 2nd frame beginning at startframe and ending less than or equal to endframe.
 
 #### **Parameter options**
 
-`PBRadii` (Default = "mbondi2")
+[`PBRadii`](#mmpbsa_ifv_PBRadii){#mmpbsa_ifv_PBRadii} (Default = "mbondi2")
 :   PBRadii to build amber topology files:
 
     * bondi, recommended when `igb = 7`
@@ -306,12 +306,12 @@ every 2nd frame beginning at startframe and ending less than or equal to endfram
             
 
 
-`temperature` (Default = 298.15)  
+[`temperature`](#mmpbsa_ifv_temperature){#mmpbsa_ifv_temperature} (Default = 298.15)  
 :   Specify the temperature (in K) used in the calculations.
    
 #### **Entropy options**
 
-`qh_entropy` (Default = 0)
+[`qh_entropy`](#mmpbsa_ifv_qh_entropy){#mmpbsa_ifv_qh_entropy} (Default = 0)
 :    It specifies whether to perform a quasi-harmonic entropy (QH) approximation with `cpptraj` or not.
      
      * 0: Don’t
@@ -322,7 +322,7 @@ every 2nd frame beginning at startframe and ending less than or equal to endfram
         complex
         * Check this [thread](http://archive.ambermd.org/201207/0319.html) for more info on QH analysis
 
-`interaction_entropy` (default = 0)
+[`interaction_entropy`](#mmpbsa_ifv_interaction_entropy){#mmpbsa_ifv_interaction_entropy} (default = 0)
 :    It specifies whether to use the [Interaction Entropy (IE)][3] approximation.
      
      * 0: Don’t
@@ -350,12 +350,12 @@ every 2nd frame beginning at startframe and ending less than or equal to endfram
   [10]: https://pubs.acs.org/doi/full/10.1021/acs.jctc.1c00374
 
 
-`ie_segment` (Default = 25)
+[`ie_segment`](#mmpbsa_ifv_ie_segment){#mmpbsa_ifv_ie_segment} (Default = 25)
 :    Representative segment (in %), starting from the last frame, for the calculation of the
 Interaction Entropy, _e.g._: `ie_segment = 25` means that the last quartile of the total number of frames
 (`(endframe-startframe)/interval`) will be used to calculate the average Interaction Entropy.
 
-`c2_entropy` (default = 0) 
+[`c2_entropy`](#mmpbsa_ifv_c2_entropy){#mmpbsa_ifv_c2_entropy} (default = 0) 
 :    It specifies whether to use the [C2 Entropy][11] approximation.
      
      * 0: Don’t
@@ -382,7 +382,7 @@ Interaction Entropy, _e.g._: `ie_segment = 25` means that the last quartile of t
 
 #### **Miscellaneous options**
 
-`assign_chainID` (Default = 0) 
+[`assign_chainID`](#mmpbsa_ifv_assign_chainID){#mmpbsa_ifv_assign_chainID} (Default = 0) 
 :   Defines the chains ID assignment mode. _It is ignored when defining a reference structure
 (recommended)_. If `assign_chainID = 1`, **xBFreE** check if the structure has no chains ID, and it is assigned 
 according to the structure[^1]. If `assign_chainID = 2`, **xBFreE** assign the chains ID, exist or not, 
@@ -392,17 +392,17 @@ according to the structure[^1] (can generate inconsistencies).
         both criteria or residue numbering changes are present, we assign a new chain ID. If there are terminal 
         amino acids, but the numbering of the residue continues, we do not change the ID of the chain._
 
-`exp_ki` (Default = 0.0)
+[`exp_ki`](#mmpbsa_ifv_exp_ki){#mmpbsa_ifv_exp_ki} (Default = 0.0)
 :   Specify the experimental Ki (in nM) for correlations analysis. If not defined or exp_ki = 0 then this system 
 will be omitted in the correlation analysis
 
-`full_traj` (Default = 0)
+[`full_traj`](#mmpbsa_ifv_full_traj){#mmpbsa_ifv_full_traj} (Default = 0)
 :   Print trajectories
 
     * 0: Print only thread trajectories in *.mdcrd format
     * 1: Print a full traj and the thread trajectories in *.mdcrd format
 
-`gmx_path` 
+[`gmx_path`](#mmpbsa_ifv_gmx_path){#mmpbsa_ifv_gmx_path} 
 :   Define a path to search for GROMACS executables. This path takes precedence over the path defined
 in the PATH variable. In this path the following executables will be searched: `gmx`, `gmx_mpi`, `gmx_d`, or
 `gmx_mpi_d` (GROMACS > 5.x.x), and `make_ndx`, `editconf` and `trjconv` (GROMACS 4.x.x)
@@ -423,7 +423,7 @@ in the PATH variable. In this path the following executables will be searched: `
            
             # replace this "/home/programs/gromacs/bin" with the path to the GROMACS you want to use.
 
-`keep_files` (Default = 2)
+[`keep_files`](#mmpbsa_ifv_keep_files){#mmpbsa_ifv_keep_files} (Default = 2)
 :   Specifies which files are kept.
 
     * 0: Keep only binary file (_COMPACT_gmx_MMPBSA_RESULTS.mmxsa_)
@@ -436,7 +436,7 @@ in the PATH variable. In this path the following executables will be searched: `
         raw data is not present. We recommnend to use `keep_files = 1` or `keep_files = 2` to 
         avoid errors when using `gmx_MMPBSA_ana`
 
-`netcdf` (Default = 0)
+[`netcdf`](#mmpbsa_ifv_netcdf){#mmpbsa_ifv_netcdf} (Default = 0)
 :   Specifies whether to use NetCDF trajectories internally rather than writing temporary ASCII trajectory
 files. For very large trajectories, this could offer significant speedups, and requires less temporary space. 
 However, this option is incompatible with alanine scanning.
@@ -444,13 +444,13 @@ However, this option is incompatible with alanine scanning.
     * 0: Do NOT use temporary NetCDF trajectories
     * 1: Use temporary NetCDF trajectories
 
-`solvated_trajectory` (Default = 1)
+[`solvated_trajectory`](#mmpbsa_ifv_solvated_trajectory){#mmpbsa_ifv_solvated_trajectory} (Default = 1)
 :   Define if it is necessary to generate a clean trajectory with no water and ions.
     
     * 0: Don’t
     * 1: Generate clean trajectory
 
-`verbose` (Default = 1)
+[`verbose`](#mmpbsa_ifv_verbose){#mmpbsa_ifv_verbose} (Default = 1)
 :   Specifies how much output is printed in the output file.
 
     * 0: Print only difference terms
@@ -485,7 +485,7 @@ However, this option is incompatible with alanine scanning.
 
 #### **Basic input options**
 
-`igb` (Default = 5)
+[`igb`](#mmpbsa_ifv_igb){#mmpbsa_ifv_igb} (Default = 5)
 :   Generalized Born method to use (see [§4](https://ambermd.org/doc12/Amber21.pdf#chapter.4) for more info).
 
     * 1: The [Hawkins, Cramer, Truhlar][191] pairwise GB model (GB-HCT)
@@ -500,7 +500,7 @@ However, this option is incompatible with alanine scanning.
   [206]: https://pubs.acs.org/doi/10.1021/ct600085e
   [200]: https://pubs.acs.org/doi/10.1021/acs.jctc.5b00271
 
-`alpb` (Default = 0)
+[`alpb`](#mmpbsa_ifv_alpb){#mmpbsa_ifv_alpb} (Default = 0)
 :   Use [Analytical Linearized Poisson-Boltzmann (ALPB)][209] approximation to handle electrostatic interactions 
 within the implicit solvent model (see [§4.2](https://ambermd.org/doc12/Amber21.pdf#section.4.2)):
 
@@ -518,7 +518,7 @@ within the implicit solvent model (see [§4.2](https://ambermd.org/doc12/Amber21
 
   [209]: https://aip.scitation.org/doi/10.1063/1.1857811
 
-`arad_method` (Default = 1)
+[`arad_method`](#mmpbsa_ifv_arad_method){#mmpbsa_ifv_arad_method} (Default = 1)
 :   Method used to estimate the effective electrostatic size/radius (`A` in ALPB equation) of the molecule 
 (See [Sigalov, Fenley, and Onufriev](https://aip.scitation.org/doi/10.1063/1.2177251)).
 
@@ -526,35 +526,35 @@ within the implicit solvent model (see [§4.2](https://ambermd.org/doc12/Amber21
     * 2: Use elementary functions
     * 3: Use elliptic integral (numerical)
 
-`intdiel` (Default = 1.0)
+[`intdiel`](#mmpbsa_ifv_intdiel){#mmpbsa_ifv_intdiel} (Default = 1.0)
 :   Define Internal dielectric constant.
 
-`extdiel` (Default = 78.5)
+[`extdiel`](#mmpbsa_ifv_extdiel){#mmpbsa_ifv_extdiel} (Default = 78.5)
 :   Define External dielectric constant.
 
-`saltcon` (Default = 0.0)
+[`saltcon`](#mmpbsa_ifv_saltcon){#mmpbsa_ifv_saltcon} (Default = 0.0)
 :   Salt concentration in Molarity (M).
 
-`rgbmax` (Default = 999.0)
+[`rgbmax`](#mmpbsa_ifv_rgbmax){#mmpbsa_ifv_rgbmax} (Default = 999.0)
 :   Distance cutoff in Å to use when computing effective GB radii.
 
-`surften` (Default = 0.0072)
+[`surften`](#mmpbsa_ifv_surften){#mmpbsa_ifv_surften} (Default = 0.0072)
 :   Surface tension value. Units in kcal/mol/Å^2^
 
-`surfoff` (Default = 0.0)
+[`surfoff`](#mmpbsa_ifv_surfoff){#mmpbsa_ifv_surfoff} (Default = 0.0)
 :   Offset to correct (by addition) the value of the non-polar contribution to the solvation free energy term.
 
-`molsurf` (Default = 0)
+[`molsurf`](#mmpbsa_ifv_molsurf){#mmpbsa_ifv_molsurf} (Default = 0)
 :   Define the algorithm to calculate the surface area for the non-polar solvation term.
     
     * 0: LCPO (Linear Combination of Pairwise Overlaps)
     * 1: molsurf algorithm
 
-`msoffset` (Default = 0) 
+[`msoffset`](#mmpbsa_ifv_msoffset){#mmpbsa_ifv_msoffset} (Default = 0) 
 :   Offset to apply to the individual atomic radii in the system when calculating the `molsurf` surface. See the
 description of the `molsurf` action command in [cpptraj][4].
 
-`probe` (Default = 1.4)
+[`probe`](#mmpbsa_ifv_probe){#mmpbsa_ifv_probe} (Default = 1.4)
 :   Radius in Å of the probe molecule (supposed to be the size of a solvent molecule), to use when determining the 
 molecular surface.
     
@@ -563,7 +563,7 @@ molecular surface.
 
 #### **QM options**
 
-`ifqnt` (Default = 0)
+[`ifqnt`](#mmpbsa_ifv_ifqnt){#mmpbsa_ifv_ifqnt} (Default = 0)
 :   Specifies whether a part of the system is treated with quantum mechanics.
     
     * 0: Potential function is strictly classical
@@ -575,7 +575,7 @@ molecular surface.
         * A tutorial on binding free energy calculation with QM/MMGBSA is available 
         [here](examples/QM_MMGBSA/README.md)
 
-`qm_theory` 
+[`qm_theory`](#mmpbsa_ifv_qm_theory){#mmpbsa_ifv_qm_theory} 
 :   Which semi-empirical Hamiltonian should be used for the quantum calculation. Options are `PM3`, `AM1`, `MNDO`, 
 `PDDG-PM3`, `PM3PDDG`, `PDDG-MNDO`, `PDDGMNDO`, `PM3-CARB1`, `PM3CARB1`, `DFTB`, `SCC-DFTB`, `RM1`, `PM6`, 
 `PM3-ZnB`, `PM3-MAIS`, `PM3ZNB`, `MNDO/D`, `MNDOD`. The dispersion correction can be switched on for `AM1` 
@@ -585,7 +585,7 @@ applied for `AM1-DH+` and `PM6-DH+`.
     !!! danger
          No `qm_theory` default, this must be specified if `ifqnt` = 1.
 
-`qm_residues`
+[`qm_residues`](#mmpbsa_ifv_qm_residues){#mmpbsa_ifv_qm_residues}
 :   Complex residues to treat with quantum mechanics. All residues treated with quantum mechanics in the complex 
 must be treated with quantum mechanics in the receptor or ligand to obtain meaningful results. This notation is 
 the same used for `print_res` variable in `&decomp` namelist.
@@ -637,30 +637,30 @@ the same used for `print_res` variable in `&decomp` namelist.
             === "Wrong notation"
                 `qm_residues="A/5-6B,6D-7` Will end in error.
 
-`qmcharge_com` (Default = 0)
+[`qmcharge_com`](#mmpbsa_ifv_qmcharge_com){#mmpbsa_ifv_qmcharge_com} (Default = 0)
 :   The charge of the quantum section for the complex.
 
     _Deprecated in v1.5.0: Now, `qmcharge_com` is assigned automatically based on the selection_
 
-`qmcharge_lig` (Default = 0)
+[`qmcharge_lig`](#mmpbsa_ifv_qmcharge_lig){#mmpbsa_ifv_qmcharge_lig} (Default = 0)
 :   The charge of the quantum section of the ligand.
 
     _Deprecated in v1.5.0: Now, `qmcharge_lig` is assigned automatically based on the selection_
 
-`qmcharge_rec` (Default = 0)
+[`qmcharge_rec`](#mmpbsa_ifv_qmcharge_rec){#mmpbsa_ifv_qmcharge_rec} (Default = 0)
 :   The charge of the quantum section for the receptor.
 
     _Deprecated in v1.5.0: Now, `qmcharge_rec` is assigned automatically based on the selection_
 
-`qmcut` (Default = 9999.0)
+[`qmcut`](#mmpbsa_ifv_qmcut){#mmpbsa_ifv_qmcut} (Default = 9999.0)
 :   The cutoff for the qm/mm charge interactions.
 
-`scfconv` (Default = 1.0e-8)
+[`scfconv`](#mmpbsa_ifv_scfconv){#mmpbsa_ifv_scfconv} (Default = 1.0e-8)
 :   Controls the convergence criteria for the SCF calculation, in kcal/mol. The tighter the 
 convergence the longer the calculation will take. Values tighter than 1.0e-11 are not recommended as these can lead 
 to oscillations in the SCF, due to limitations in machine precision, that can lead to convergence failures.
 
-`writepdb` (Default = 1)
+[`writepdb`](#mmpbsa_ifv_writepdb){#mmpbsa_ifv_writepdb} (Default = 1)
 :   Write a PDB file of the selected QM region. This option is designed to act as an aid to the user to
 allow easy checking of what atoms were included in the QM region. Write a PDB file of the atoms in the QM region 
 on the very first step to a file named qmmm_region.pdb.
@@ -668,7 +668,7 @@ on the very first step to a file named qmmm_region.pdb.
     * 0: Don't
     * 1: Write a PDB file of the selected QM region
 
-`peptide_corr` (Default = 0)
+[`peptide_corr`](#mmpbsa_ifv_peptide_corr){#mmpbsa_ifv_peptide_corr} (Default = 0)
 :   Apply MM correction to peptide linkages. This correction is of the form: 
 
 [comment]: <> (    <img src="https://latex.codecogs.com/svg.)
@@ -689,7 +689,7 @@ on the very first step to a file named qmmm_region.pdb.
     * 0: Don't
     * 1: Apply a MM correction to peptide linkages
 
-`verbosity` (Default = 0)
+[`verbosity`](#mmpbsa_ifv_verbosity){#mmpbsa_ifv_verbosity} (Default = 0)
 :   Controls the verbosity of QM/MM related output. Values of 2 or higher will produce a lot of output.
 
     * 0: only minimal information is printed - Initial QM geometry and link atom positions as
@@ -741,40 +741,40 @@ on the very first step to a file named qmmm_region.pdb.
 
 #### **Basic input options**
 
-`epsin` (Default = 1.0)
+[`epsin`](#mmpbsa_ifv_epsin){#mmpbsa_ifv_epsin} (Default = 1.0)
 :   Dielectric constant of the solute region.
 
-`epsout` (Default = 78.5)
+[`epsout`](#mmpbsa_ifv_epsout){#mmpbsa_ifv_epsout} (Default = 78.5)
 :   Implicit solvent dielectric constant for the solvent.
 
-`istrng` (Default = 0.0)
+[`istrng`](#mmpbsa_ifv_istrng){#mmpbsa_ifv_istrng} (Default = 0.0)
 :   Ionic strength in M for the GBNSR6 equation.
                            
-`dprob` (Default = 1.4)
+[`dprob`](#mmpbsa_ifv_dprob){#mmpbsa_ifv_dprob} (Default = 1.4)
 :   Radius of the solvent probe.
 
-`cavity_surften` (Default = 0.005)
+[`cavity_surften`](#mmpbsa_ifv_cavity_surften){#mmpbsa_ifv_cavity_surften} (Default = 0.005)
 :   Surface tension parameter for nonpolar solvation calculation.
 
 #### **Options to select numerical procedures**
 
-`space` (Default = 0.5)
+[`space`](#mmpbsa_ifv_space){#mmpbsa_ifv_space} (Default = 0.5)
 :   Sets the grid spacing that determines the resolution of the solute molecular surface. Note that memory footprint of 
 this grid-based implementation of GBNSR6 may become large for large structures, e.g. the nucleosome (about 25,000 
 atoms) will take close to 2 GB of RAM when the default grid spacing is used. For very large structures, one may 
 consider increasing the value of space, which will reduce the memory footprint and execution time; however, the 
 accuracy will also decrease.
 
-`arcres` (Default = 0.2)
+[`arcres`](#mmpbsa_ifv_arcres){#mmpbsa_ifv_arcres} (Default = 0.2)
 :   Arc resolution used for numerical integration over molecular surface.
 
-`b` (Default = 0.028)
+[`b`](#mmpbsa_ifv_b){#mmpbsa_ifv_b} (Default = 0.028)
 :   Specifies the value of uniform offset to the (inverse) effective radii, the default value 0.028 gives 
 better agreement with the PB model, regardless of the structure size. For best agreement with the explicit solvent 
 (TIP3P) solvation energies, optimal value of B depends on the structure size: for small molecules (number of atoms 
 less than 50), B=0 is recommended. With -chagb option, B is calculated automatically based on the solute size.
 
-`alpb` (Default = 1)
+[`alpb`](#mmpbsa_ifv_alpb-1){#mmpbsa_ifv_alpb-1} (Default = 1)
 :   Specifies if ALBP correction is to be used.
 
     * 0: Canonical GB is used.
@@ -782,16 +782,16 @@ less than 50), B=0 is recommended. With -chagb option, B is calculated automatic
 
 #### **Options for CHAGB model**
 
-`chagb` (Default = 0)
+[`chagb`](#mmpbsa_ifv_chagb){#mmpbsa_ifv_chagb} (Default = 0)
 :   Define if CHAGB is used.
 
     * 0: Do not use CHAGB.
     * 1: Use CHAGB.
 
-`rs` (Default = 0.52)
+[`rs`](#mmpbsa_ifv_rs){#mmpbsa_ifv_rs} (Default = 0.52)
 :   Dielectric boundary shift compared to the molecular surface.
 
-`radiopt` (Default = 0)
+[`radiopt`](#mmpbsa_ifv_radiopt){#mmpbsa_ifv_radiopt} (Default = 0)
 :   Set of intrinsic atomic radii to be used.
 
     * 0: uses hardcoded intrisic radii optimized for small drug like molecules, and single amino acid
@@ -802,7 +802,7 @@ less than 50), B=0 is recommended. With -chagb option, B is calculated automatic
 
   [215]: https://pubs.acs.org/doi/full/10.1021/ct4010917
 
-`roh` (Default = 1)
+[`roh`](#mmpbsa_ifv_roh){#mmpbsa_ifv_roh} (Default = 1)
 :   Sets the value of R<sup>z</sup><sub>OH</sub> for CHAGB model, the default is 0.586Å. This parameter defines which 
 explicit water model is being mimicked with respect to its propensity to cause charge hydration asymmetry. A perfectly 
 tetrahedral water , which can not cause charge hydration asymmetry, would have R<sup>z</sup><sub>OH</sub> = 0. The 
@@ -813,7 +813,7 @@ options for `roh` are:
     * 3: R<sup>z</sup><sub>OH</sub> = 0.734Å for TIP4P 
     * 4: R<sup>z</sup><sub>OH</sub> = 0.183Å for TIP5P/E. 
 
-`tau` (Default = 1.47)
+[`tau`](#mmpbsa_ifv_tau){#mmpbsa_ifv_tau} (Default = 1.47)
 :   Value of τ in the CHAGB model. This dimensionless parameter controls the effective range of the neighboring 
 charges (_j_) affecting the CHA of atom (_i_), see ([ref.][215]) for details.
 
@@ -850,7 +850,7 @@ charges (_j_) affecting the CHA of atom (_i_), see ([ref.][215]) for details.
 
 #### **Basic input options**
 
-`ipb` (Default = 2)
+[`ipb`](#mmpbsa_ifv_ipb){#mmpbsa_ifv_ipb} (Default = 2)
 :   Option to set up a dielectric model for all numerical PB procedures. `ipb = 1` corresponds to a classical geometric 
 method, while a level-set based algebraic method is used when `ipb > 2`.
 
@@ -879,7 +879,7 @@ method, while a level-set based algebraic method is used when `ipb > 2`.
   [240]: https://onlinelibrary.wiley.com/doi/10.1002/jcc.25783
   [241]: https://pubs.acs.org/doi/10.1021/acs.jctc.9b00602
 
-`inp` (Default = 1) 
+[`inp`](#mmpbsa_ifv_inp){#mmpbsa_ifv_inp} (Default = 1) 
 :   Option to select different methods to compute non-polar solvation free energy.
 
     * 1: The total non-polar solvation free energy is modeled as a single term linearly proportional to the
@@ -903,7 +903,7 @@ method, while a level-set based algebraic method is used when `ipb > 2`.
   [227]: https://pubs.acs.org/doi/abs/10.1021/jp073399n
   [229]: https://onlinelibrary.wiley.com/doi/10.1002/jcc.540100504
 
-`sander_apbs` (Default = 0)
+[`sander_apbs`](#mmpbsa_ifv_sander_apbs){#mmpbsa_ifv_sander_apbs} (Default = 0)
 :   Option to use `APBS` for `PB` calculation instead of the built-in `PBSA` solver. This will work only through the
     `iAPBS` interface built into `sander.APBS`. Instructions for this can be found online at the iAPBS/APBS websites.
     
@@ -912,17 +912,17 @@ method, while a level-set based algebraic method is used when `ipb > 2`.
 
 #### **Options to define the physical constants**
 
-`indi` (Default = 1.0)
+[`indi`](#mmpbsa_ifv_indi){#mmpbsa_ifv_indi} (Default = 1.0)
 :   Internal dielectric constant. This corresponds to `epsin` in [pbsa][5].
 
-`exdi` (Default = 80.0)
+[`exdi`](#mmpbsa_ifv_exdi){#mmpbsa_ifv_exdi} (Default = 80.0)
 :   External dielectric constant. This corresponds to `epsout` in [pbsa][5].
 
-`emem` (Default = 4.0)
+[`emem`](#mmpbsa_ifv_emem){#mmpbsa_ifv_emem} (Default = 4.0)
 :   Sets the membrane dielectric constant. Only used if `memopt` > 0, does nothing otherwise. Value
 used should be between `indi` and `exdi` or there may be errors. This corresponds to `epsmem` in [pbsa][5].
 
-`smoothopt` (Default = 1)
+[`smoothopt`](#mmpbsa_ifv_smoothopt){#mmpbsa_ifv_smoothopt} (Default = 1)
 :   Instructs PB how to set up dielectric values for finite-difference grid edges that are located across the
 solute/solvent dielectric boundary.
 
@@ -936,10 +936,10 @@ solute/solvent dielectric boundary.
 
   [243]: https://pubs.acs.org/doi/10.1021/cr00101a005
 
-`istrng` (Default = 0.0)
+[`istrng`](#mmpbsa_ifv_istrng-1){#mmpbsa_ifv_istrng-1} (Default = 0.0)
 :   Ionic strength in Molarity (M). It is converted to mM for `PBSA` and kept as M for `APBS`.
 
-`radiopt` (Default = 1)
+[`radiopt`](#mmpbsa_ifv_radiopt-1){#mmpbsa_ifv_radiopt-1} (Default = 1)
 :   The option to set up atomic radii.
 
     * 0: Use radii from the prmtop file for both the PB calculation and for the non-polar calculation (see `inp`) 
@@ -951,13 +951,13 @@ solute/solvent dielectric boundary.
 
   [244]: https://pubs.acs.org/doi/abs/10.1021/jp063479b
 
-`prbrad` (Default = 1.4)
+[`prbrad`](#mmpbsa_ifv_prbrad){#mmpbsa_ifv_prbrad} (Default = 1.4)
 :   Solvent probe radius (in Å). Allowed values are 1.4 and 1.6. This corresponds to `dprob` in [pbsa][5].
 
-`iprob` (Default = 2.0)
+[`iprob`](#mmpbsa_ifv_iprob){#mmpbsa_ifv_iprob} (Default = 2.0)
 :   Mobile ion probe radius (in Å) for ion accessible surface used to define the Stern layer.
 
-`sasopt` (Default = 0)
+[`sasopt`](#mmpbsa_ifv_sasopt){#mmpbsa_ifv_sasopt} (Default = 0)
 :   Option to determine which kind of molecular surfaces to be used in the Poisson-Boltzmann implicit solvent model.
 
     * 0: Use the solvent excluded surface as implemented by ([ref.][239])
@@ -968,13 +968,13 @@ solute/solvent dielectric boundary.
 
   [245]: https://pubs.acs.org/doi/10.1021/ct900318u
 
-`arcres` (Default = 0.25)
+[`arcres`](#mmpbsa_ifv_arcres-1){#mmpbsa_ifv_arcres-1} (Default = 0.25)
 :   The `arcres` keyword gives the resolution (in Å) of dots used to represent solvent accessible arcs. More
 generally, `arcres` should be set to max(0.125 Å, 0.5h) (h is the grid spacing). ([ref.][239])
 
 #### **Options for implicit membranes**
 
-`memopt` (Default = 0)
+[`memopt`](#mmpbsa_ifv_memopt){#mmpbsa_ifv_memopt} (Default = 0)
 :   Option to turn the implicit membrane on and off. The membrane is implemented as a slab like region with a uniform 
 or heterogeneous dielectric constant depth profile. Details of the implicit membrane setup can be 
 found [here](https://pubs.acs.org/doi/full/10.1021/acs.jctc.7b00382).
@@ -999,7 +999,7 @@ found [here](https://pubs.acs.org/doi/full/10.1021/acs.jctc.7b00382).
   [246]: https://www.sciencedirect.com/science/article/abs/pii/S0009261412012808?via%3Dihub
   [247]: https://pubs.acs.org/doi/abs/10.1021/acs.jcim.9b00363
 
-`mprob` (Default = 2.70)
+[`mprob`](#mmpbsa_ifv_mprob){#mmpbsa_ifv_mprob} (Default = 2.70)
 :   Membrane probe radius (in Å). This is used to specify the highly different lipid molecule accessibility versus 
 that of the water. ([ref.][248])
 
@@ -1007,13 +1007,13 @@ that of the water. ([ref.][248])
 
 [<img src="../assets/prot_memb.png" height="200" width="258" align="right"/>]()
 
-`mthick` (Default = 40)
+[`mthick`](#mmpbsa_ifv_mthick){#mmpbsa_ifv_mthick} (Default = 40)
 :   Membrane thickness (in Å). This is different from the previous default of 20 Å.
 
-`mctrdz` (Default = 0.0)
+[`mctrdz`](#mmpbsa_ifv_mctrdz){#mmpbsa_ifv_mctrdz} (Default = 0.0)
 :   Membrane center (in Å) in the z direction.
 
-`poretype` (Default = 1)
+[`poretype`](#mmpbsa_ifv_poretype){#mmpbsa_ifv_poretype} (Default = 1)
 :   Turn on and off the automatic depth-first search method to identify the pore. ([ref.][248])
 
     * 0: Do not turn on the pore searching algorithm.
@@ -1021,7 +1021,7 @@ that of the water. ([ref.][248])
 
 #### **Options to select numerical procedures**
 
-`npbopt` (Default = 0)
+[`npbopt`](#mmpbsa_ifv_npbopt){#mmpbsa_ifv_npbopt} (Default = 0)
 :   Option to select the linear, or the full nonlinear PB equation.
 
     * 0: Linear PB equation (LPBE) is solved
@@ -1036,7 +1036,7 @@ that of the water. ([ref.][248])
         least, take into account that using NLPBE can significantly increase the calculation time required for 
         PB calculation.
 
-`solvopt` (Default = 1)
+[`solvopt`](#mmpbsa_ifv_solvopt){#mmpbsa_ifv_solvopt} (Default = 1)
 :   Option to select iterative solvers.
 
     * 1 Modified ICCG or Periodic (PICCG) if `bcopt = 10`.
@@ -1051,40 +1051,40 @@ that of the water. ([ref.][248])
 
   [219]: https://pubs.acs.org/doi/10.1021/ct900381r
 
-`accept` (Default = 0.001)
+[`accept`](#mmpbsa_ifv_accept){#mmpbsa_ifv_accept} (Default = 0.001)
 :   Sets the iteration convergence criterion (relative to the initial residue).
 
-`linit` (Default = 1000) 
+[`linit`](#mmpbsa_ifv_linit){#mmpbsa_ifv_linit} (Default = 1000) 
 :   Sets the maximum number of iterations for the finite difference solvers. Note that `linit` has to be set to a 
 much larger value, _e.g._ 10000, for the less efficient solvers, such as conjugate gradient and SOR, to converge. 
 This corresponds to `maxitn` in [pbsa][5].
 
-`fillratio` (Default = 4.0) 
+[`fillratio`](#mmpbsa_ifv_fillratio){#mmpbsa_ifv_fillratio} (Default = 4.0) 
 :   The ratio between the longest dimension of the rectangular finite-difference grid and that of the solute. For 
 macromolecules is fine to use 4, or a smaller value like 2. A default value of 4 is large enough to be used for a 
 small solute, such as a ligand molecule. Using a smaller value for `fillratio` may cause part of the small solute 
 to lie outside the finite-difference grid, causing the finite-difference solvers to fail. 
 
-`scale` (Default = 2.0)
+[`scale`](#mmpbsa_ifv_scale){#mmpbsa_ifv_scale} (Default = 2.0)
 :   Resolution of the Poisson Boltzmann grid. It is equal to the reciprocal of the grid spacing (`space` in [pbsa][5]).
 
-`nbuffer` (Default = 0)
+[`nbuffer`](#mmpbsa_ifv_nbuffer){#mmpbsa_ifv_nbuffer} (Default = 0)
 :   Sets how far away (in grid units) the boundary of the finite difference grid is away from the solute
 surface; _i.e._, automatically set to be at least a solvent probe or ion probe (diameter) away from the solute surface.
 
-`nfocus` (Default = 2)
+[`nfocus`](#mmpbsa_ifv_nfocus){#mmpbsa_ifv_nfocus} (Default = 2)
 :   Set how many successive FD calculations will be used to perform an electrostatic focussing calculation on a 
 molecule. When `nfocus` = 1, no focusing is used. It is recommended that `nfocus = 1` when the multigrid solver is used.
 
-`fscale` (Default = 8)
+[`fscale`](#mmpbsa_ifv_fscale){#mmpbsa_ifv_fscale} (Default = 8)
 :   Set the ratio between the coarse and fine grid spacings in an electrostatic focussing calculation.
 
-`npbgrid` (Default = 1)
+[`npbgrid`](#mmpbsa_ifv_npbgrid){#mmpbsa_ifv_npbgrid} (Default = 1)
 :   Sets how often the finite-difference grid is regenerated.
 
 #### **Options to compute energy and forces**
 
-`bcopt` (Default = 5)
+[`bcopt`](#mmpbsa_ifv_bcopt){#mmpbsa_ifv_bcopt} (Default = 5)
 :   Boundary condition options.
 
     * 1: Boundary grid potentials are set as zero, _i.e._ conductor. Total electrostatic potentials and energy
@@ -1100,7 +1100,7 @@ molecule. When `nfocus` = 1, no focusing is used. It is recommended that `nfocus
 
   [236]: https://aip.scitation.org/doi/abs/10.1063/1.3099708
 
-`eneopt` (Default = 2)
+[`eneopt`](#mmpbsa_ifv_eneopt){#mmpbsa_ifv_eneopt} (Default = 2)
 :   Option to compute total electrostatic energy and forces.
 
     * 1: Compute total electrostatic energy and forces with the particle-particle particle-mesh (P3M)
@@ -1121,7 +1121,7 @@ molecule. When `nfocus` = 1, no focusing is used. It is recommended that `nfocus
 
   [223]: https://aip.scitation.org/doi/10.1063/1.1622376
 
-`frcopt` (Default = 0)
+[`frcopt`](#mmpbsa_ifv_frcopt){#mmpbsa_ifv_frcopt} (Default = 0)
 :   Option to compute and output electrostatic forces to a file named force.dat in the working directory.
 
     * 0: Do not compute or output atomic and total electrostatic forces.
@@ -1136,7 +1136,7 @@ molecule. When `nfocus` = 1, no focusing is used. It is recommended that `nfocus
   [237]: https://www.sciencedirect.com/science/article/abs/pii/S0009261411010487?via%3Dihub
   [249]: https://pubs.rsc.org/en/content/articlelanding/2012/cp/c2cp43237d
 
-`scalec` (Default = 0)
+[`scalec`](#mmpbsa_ifv_scalec){#mmpbsa_ifv_scalec} (Default = 0)
 :   Option to compute reaction field energy and forces.
 
     * 0: Do not scale dielectric boundary surface charges before computing reaction field energy and
@@ -1144,25 +1144,25 @@ molecule. When `nfocus` = 1, no focusing is used. It is recommended that `nfocus
     * 1: Scale dielectric boundary surface charges using Gauss’s law before computing reaction field
     energy and forces.
 
-`cutfd` (Default = 5.0)
+[`cutfd`](#mmpbsa_ifv_cutfd){#mmpbsa_ifv_cutfd} (Default = 5.0)
 :   Atom-based cutoff distance to remove short-range finite-difference interactions, and to add pairwise
 charge-based interactions. This is used for both energy and force calculations. See Eqn (20) in 
 Lu and Luo. ([ref.][223])
 
-`cutnb` (Default = 0.0)
+[`cutnb`](#mmpbsa_ifv_cutnb){#mmpbsa_ifv_cutnb} (Default = 0.0)
 :   Atom-based cutoff distance for van der Waals interactions, and pairwise Coulombic interactions when `eneopt` = 2.
 When `cutnb` is set to the default value of 0, no cutoff will be used for van der Waals and Coulombic interactions, 
 _i.e._, all pairwise interactions will be included. When `eneopt = 1`, this is the cutoff distance used for van der 
 Waals interactions only. The particle-particle portion of the Coulombic interactions is computed with the cutoff of 
 `cutfd`._
 
-`nsnba` (Default = 1)
+[`nsnba`](#mmpbsa_ifv_nsnba){#mmpbsa_ifv_nsnba} (Default = 1)
 :   Sets how often (steps) atom-based pairlist is generated.
 
 
 #### **Options to select a non-polar solvation treatment**
 
-`decompopt` (Default = 2)
+[`decompopt`](#mmpbsa_ifv_decompopt){#mmpbsa_ifv_decompopt} (Default = 2)
 :   Option to select different decomposition schemes when `inp = 2`. See ([ref.][227]) for a detailed discussion
 of the different schemes. The _σ_ decomposition scheme is the best of the three schemes studied. ([ref.][227]) As 
 discussed in ([ref.][227]), `decompopt = 1` is not a very accurate approach even if it is more straightforward to 
@@ -1172,7 +1172,7 @@ understand the decomposition.
     * 2: The _σ_ decomposition scheme.
     * 3: The WCA decomposition scheme.
 
-`use_rmin` (Default = 1)
+[`use_rmin`](#mmpbsa_ifv_use_rmin){#mmpbsa_ifv_use_rmin} (Default = 1)
 :   The option to set up van der Waals radii. The default is to use van der Waals _rmin_ to improve the agreement with
 TIP3P. ([ref.][227])
 
@@ -1180,7 +1180,7 @@ TIP3P. ([ref.][227])
     * 1: Use atomic van der Waals _rmin_ values.
 
 
-`sprob` (Default = 0.557)
+[`sprob`](#mmpbsa_ifv_sprob){#mmpbsa_ifv_sprob} (Default = 0.557)
 :   Solvent probe radius (in Å) for solvent accessible surface area (SASA) used to compute the dispersion term,
 default to 0.557 Å in the _σ_ decomposition scheme as optimized in ([ref.][227]) with respect to the
 TIP3P solvent and the PME treatment. Recommended values for other decomposition schemes can
@@ -1195,19 +1195,19 @@ that it was impossible to use the same probe radii for all three terms after eac
 and validated with respect to the TIP3P solvent. ([ref.][227])
 
 
-`vprob` (Default = 1.300)
+[`vprob`](#mmpbsa_ifv_vprob){#mmpbsa_ifv_vprob} (Default = 1.300)
 :   Solvent probe radius (in Å) for molecular volume (the volume enclosed by SASA) used to compute non-polar cavity 
 solvation free energy, default to 1.300 Å, the value optimized in ([ref.][227]) with respect to the TIP3P solvent. 
 Recommended values for other decomposition schemes can be found in Tables 1-3 of ([ref.][227]).
 
 
-`rhow_effect` (Default = 1.129)
+[`rhow_effect`](#mmpbsa_ifv_rhow_effect){#mmpbsa_ifv_rhow_effect} (Default = 1.129)
 :   Effective water density used in the non-polar dispersion term calculation, default to 1.129 for `decompopt = 2`, the 
 _σ_ scheme. This was optimized in ([ref.][227]) with respect to the TIP3P solvent in PME. Optimized values for other 
 decomposition schemes can be found in Table 4 of ([ref.][227]).
 
 
-`use_sav` (Default = 1)
+[`use_sav`](#mmpbsa_ifv_use_sav){#mmpbsa_ifv_use_sav} (Default = 1)
 :   The option to use molecular volume (the volume enclosed by SASA) or to use molecular surface (SASA) for cavity term 
 calculation. Recent study shows that the molecular volume approach transfers better from small training molecules to 
 biomacromolecules.
@@ -1216,19 +1216,19 @@ biomacromolecules.
     * 1: Use the molecular volume enclosed by SASA
 
 
-`cavity_surften` (Default = 0.0378)
+[`cavity_surften`](#mmpbsa_ifv_cavity_surften-1){#mmpbsa_ifv_cavity_surften-1} (Default = 0.0378)
 :   The regression coefficient for the linear relation between the total non-polar solvation free energy (`inp` = 1), or 
 the cavity free energy (`inp = 2`) and SASA/volume enclosed by SASA. The default value is for `inp = 2` and set to the 
 best of three tested schemes as reported in ([ref.][227]), _i.e._ `decompopt = 2`, `use_rmin = 1`, and `use_sav = 1`. See 
 recommended values in Tables 1-3 for other schemes.
 
-`cavity_offset` (Default = -0.5692)
+[`cavity_offset`](#mmpbsa_ifv_cavity_offset){#mmpbsa_ifv_cavity_offset} (Default = -0.5692)
 :   The regression offset for the linear relation between the total non-polar solvation free energy (`inp`= 1), or 
 the cavity free energy (`inp = 2`) and SASA/volume enclosed by SASA. The default value is for `inp` = 2 and set to 
 the best of three tested schemes as reported in ([ref.][227]), _i.e._ `decompopt = 2`, `use_rmin = 1`, and `use_sav = 1`. 
 See recommended values in Tables 1-3 for other schemes.
 
-`maxsph` (Default = 400)
+[`maxsph`](#mmpbsa_ifv_maxsph){#mmpbsa_ifv_maxsph} (Default = 400)
 :   Approximate number of dots to represent the maximum atomic solvent accessible surface. These dots are first checked 
 against covalently bonded atoms to see whether any of the dots are buried. The exposed dots from the first step are 
 then checked against a non-bonded pair list with a cutoff distance of 9 Å to see whether any of the exposed dots 
@@ -1240,12 +1240,12 @@ summation of the atomic SASA’s. A molecular SASA is used for both PB dielectri
   [6]: https://onlinelibrary.wiley.com/doi/10.1002/jcc.24467
 
 
-`maxarcdot` (Default = 1500)
+[`maxarcdot`](#mmpbsa_ifv_maxarcdot){#mmpbsa_ifv_maxarcdot} (Default = 1500)
 :   Number of dots used to store arc dots per atom.
 
 #### **Options for output**
 
-`npbverb` (Default = 0)
+[`npbverb`](#mmpbsa_ifv_npbverb){#mmpbsa_ifv_npbverb} (Default = 0)
 :   Verbose mode.
 
     * 0: Off
@@ -1299,7 +1299,7 @@ summation of the atomic SASA’s. A molecular SASA is used for both PB dielectri
 
 #### **Closure approximations**
 
-`closure` (Default = "kh")
+[`closure`](#mmpbsa_ifv_closure){#mmpbsa_ifv_closure} (Default = "kh")
 :   Comma separate list of closure approximations. If more than one closure is provided, the 3D-RISM solver will use 
 the closures in order to obtain a solution for the last closure in the list when no previous solutions are available.
 The solution for the last closure in the list is used for all output. The use of several closures combined with 
@@ -1318,14 +1318,14 @@ pdf#subsection.7.3.1))
 
 #### **Solvation free energy corrections**
 
-`gfcorrection` (Default = 0)
+[`gfcorrection`](#mmpbsa_ifv_gfcorrection){#mmpbsa_ifv_gfcorrection} (Default = 0)
 :    Compute the Gaussian fluctuation excess chemical potential functional. 
 See [§7.1.2](https://ambermd.org/doc12/Amber21.pdf#subsection.7.1.2)
 
     * 0: Off
     * 1: On
 
-`pcpluscorrection` (Default = 0)
+[`pcpluscorrection`](#mmpbsa_ifv_pcpluscorrection){#mmpbsa_ifv_pcpluscorrection} (Default = 0)
 :    Compute the PC+/3D-RISM excess chemical potential functional.
 See [§7.2.4](https://ambermd.org/doc12/Amber21.pdf#subsection.7.2.4)
 
@@ -1339,71 +1339,71 @@ See [§7.2.4](https://ambermd.org/doc12/Amber21.pdf#subsection.7.2.4)
     Long-range asymptotics are always used when calculating a solution but can be omitted for
     the subsequent thermodynamic calculations, though it is not recommended.
 
-`noasympcorr` (Default = 1) 
+[`noasympcorr`](#mmpbsa_ifv_noasympcorr){#mmpbsa_ifv_noasympcorr} (Default = 1) 
 :   Use long-range asymptotic corrections for thermodynamic calculations.
 
     * 0: Do not use long-range corrections
     * 1: Use the long-range corrections
 
 
-`treeDCF` (Default = 1)
+[`treeDCF`](#mmpbsa_ifv_treeDCF){#mmpbsa_ifv_treeDCF} (Default = 1)
 :   Use direct sum, or the treecode approximation to calculate the direct correlation function long-range asymptotic 
 correction.
 
     * 0: Use direct sum
     * 1: Use treecode approximation
 
-`treeTCF` (Default = 1)
+[`treeTCF`](#mmpbsa_ifv_treeTCF){#mmpbsa_ifv_treeTCF} (Default = 1)
 :   Use direct sum, or the treecode approximation to calculate the total correlation function long-range asymptotic 
 correction.
 
     * 0: Use direct sum
     * 1: Use treecode approximation
 
-`treeCoulomb` (Default = 1)
+[`treeCoulomb`](#mmpbsa_ifv_treeCoulomb){#mmpbsa_ifv_treeCoulomb} (Default = 1)
 :   Use direct sum, or the treecode approximation to calculate the Coulomb potential energy.
 
     * 0: Use direct sum
     * 1: Use treecode approximation
 
 
-`treeDCFMAC` (Default = 0.1)
+[`treeDCFMAC`](#mmpbsa_ifv_treeDCFMAC){#mmpbsa_ifv_treeDCFMAC} (Default = 0.1)
 :   Treecode multipole acceptance criterion for the direct correlation function long-range asymptotic correction.
 
 
-`treeTCFMAC` (Default = 0.1)
+[`treeTCFMAC`](#mmpbsa_ifv_treeTCFMAC){#mmpbsa_ifv_treeTCFMAC} (Default = 0.1)
 :   Treecode multipole acceptance criterion for the total correlation function long-range asymptotic correction.
 
 
-`treeCoulombMAC` (Default = 0.1)
+[`treeCoulombMAC`](#mmpbsa_ifv_treeCoulombMAC){#mmpbsa_ifv_treeCoulombMAC} (Default = 0.1)
 :   Treecode multipole acceptance criterion for the Coulomb potential energy.
 
 
-`treeDCFOrder` (Default = 2)
+[`treeDCFOrder`](#mmpbsa_ifv_treeDCFOrder){#mmpbsa_ifv_treeDCFOrder} (Default = 2)
 :   Treecode Taylor series order for the direct correlation function long-range asymptotic correction.
 
 
-`treeTCFOrder` (Default = 2)
+[`treeTCFOrder`](#mmpbsa_ifv_treeTCFOrder){#mmpbsa_ifv_treeTCFOrder} (Default = 2)
 :   Treecode Taylor series order for the total correlation function long-range asymptotic correction. Note that the 
 Taylor expansion used does not converge exactly to the TCF long-range asymptotic correction, so a very high order 
 will not necessarily increase accuracy.
 
 
-`treeCoulombOrder` (Default = 2)
+[`treeCoulombOrder`](#mmpbsa_ifv_treeCoulombOrder){#mmpbsa_ifv_treeCoulombOrder} (Default = 2)
 :   Treecode Taylor series order for the Coulomb potential energy.
 
 
-`treeDCFN0` (Default = 500)
+[`treeDCFN0`](#mmpbsa_ifv_treeDCFN0){#mmpbsa_ifv_treeDCFN0} (Default = 500)
 :   Maximum number of grid points contained within the treecode leaf clusters for the direct correlation function 
 long-range asymptotic correction. This sets the depth of the hierarchical octtree.
 
 
-`treeTCFN0` (Default = 500)
+[`treeTCFN0`](#mmpbsa_ifv_treeTCFN0){#mmpbsa_ifv_treeTCFN0} (Default = 500)
 :   Maximum number of grid points contained within the treecode leaf clusters for the total correlation function 
 long-range asymptotic correction. This sets the depth of the hierarchical octtree.
 
 
-`treeCoulombN0` (Default = 500)
+[`treeCoulombN0`](#mmpbsa_ifv_treeCoulombN0){#mmpbsa_ifv_treeCoulombN0} (Default = 500)
 :   Maximum number of grid points contained within the treecode leaf clusters for the Coulomb potential energy. This 
 sets the depth of the hierarchical octtree.
 
@@ -1425,7 +1425,7 @@ sets the depth of the hierarchical octtree.
     It is recommended to avoid specifying a large, prime number of processes (≥ 7) when using a variable solvation 
     box size.
 
-`buffer` (Default = 14)
+[`buffer`](#mmpbsa_ifv_buffer){#mmpbsa_ifv_buffer} (Default = 14)
 :   Minimum distance (in Å) between solute and edge of solvation box. Specify this with `grdspc` below. Mutually 
 exclusive with `ng` and `solvbox`. See [§7.2.3](https://ambermd.org/doc12/Amber21.pdf#subsection.7.2.3) for details on 
 how this affects numerical accuracy and how this interacts with `ljTolerance`, and `tolerance`
@@ -1433,13 +1433,13 @@ how this affects numerical accuracy and how this interacts with `ljTolerance`, a
     * when < 0: Use fixed box size (see `ng` and `solvbox` below)
     * when >= 0: Use `buffer` distance
 
-`grdspc`(Default = 0.5,0.5,0.5)
+[`grdspc`](#mmpbsa_ifv_grdspc){#mmpbsa_ifv_grdspc}(Default = 0.5,0.5,0.5)
 :   Grid spacing (in Å) of the solvation box. Specify this with `buffer` above. Mutually exclusive with `ng` and 
 `solvbox`.
 
 ##### **Fixed box size**
 
-`ng` (Default = -1,-1,-1)
+[`ng`](#mmpbsa_ifv_ng){#mmpbsa_ifv_ng} (Default = -1,-1,-1)
 :   Comma separated number of grid points to use in the x, y, and z directions. Used only if buffer < 0. Mutually 
 exclusive with `buffer` and `grdspc` above, and paired with `solvbox` below.
 
@@ -1457,21 +1457,21 @@ exclusive with `buffer` and `grdspc` above, and paired with `solvbox` below.
         due to the overhead involved in which each thread is required to load every topology file when calculating 
         energies, parallel scaling will begin to fall off as the number of threads reaches the number of frames. 
 
-`solvbox` (Default = -1,-1,-1)
+[`solvbox`](#mmpbsa_ifv_solvbox){#mmpbsa_ifv_solvbox} (Default = -1,-1,-1)
 :    Sets the size in Å of the fixed size solvation box. Used only if `buffer` < 0. Mutually exclusive with `buffer` 
 and `grdspc` above, and paired with `ng` above. 
 
     !!! warning 
         No default, this must be set if buffer < 0. Define like `solvbox=20,20,20`
 
-`solvcut`  (Default = 14)
+[`solvcut`](#mmpbsa_ifv_solvcut){#mmpbsa_ifv_solvcut}  (Default = 14)
 :   Cutoff used for solute-solvent interactions. The default value is that of buffer. Therefore, if you set `buffer` < 
 0 and specify `ng` and `solvbox` instead, you must set `solvcut` to a nonzero value; otherwise the program will quit in 
 error.
 
 #### **Solution convergence**
 
-`tolerance` (Default = 0.00001)
+[`tolerance`](#mmpbsa_ifv_tolerance){#mmpbsa_ifv_tolerance} (Default = 0.00001)
 :   A comma-separated list of maximum residual values for solution convergence. This has a strong effect on the 
 cost of 3D-RISM calculations (smaller value for tolerance -> more computation). When used in combination with a list 
 of closures it is possible to define different tolerances for each of the closures. This can be useful for difficult 
@@ -1508,13 +1508,13 @@ accuracy and how this interacts with `ljTolerance`, `buffer`, and `solvbox`. Thr
             will be used for clousure "pse3".
 
 
-`ljTolerance` (Default = -1)
+[`ljTolerance`](#mmpbsa_ifv_ljTolerance){#mmpbsa_ifv_ljTolerance} (Default = -1)
 :   Lennard-Jones accuracy (Optional.) Determines the Lennard-Jones cutoff distance based on the desired accuracy of 
 the calculation. See [§7.2.3](https://ambermd.org/doc12/Amber21.pdf#subsection.7.2.3) for details on how this affects 
 numerical accuracy and how this interacts with `tolerance`, `buffer`, and `solvbox`.
 
 
-`asympKSpaceTolerance` (Default = -1)
+[`asympKSpaceTolerance`](#mmpbsa_ifv_asympKSpaceTolerance){#mmpbsa_ifv_asympKSpaceTolerance} (Default = -1)
 :   Tolerance reciprocal space long range asymptotics accuracy (Optional.) Determines the reciprocal space long 
 range asymptotic cutoff distance based on the desired accuracy of the calculation. 
 See [§7.2.3](https://ambermd.org/doc12/Amber21.pdf#subsection.7.2.3) for details on how this affects numerical 
@@ -1525,25 +1525,25 @@ accuracy. Possible values are:
     * when > 0: given value determines the maximum error in the reciprocal-space long range asymptotics calculations
 
 
-`mdiis_del` (Default = 0.7)
+[`mdiis_del`](#mmpbsa_ifv_mdiis_del){#mmpbsa_ifv_mdiis_del} (Default = 0.7)
 :   MDIIS step size.
 
 
-`mdiis_nvec` (Default = 5)
+[`mdiis_nvec`](#mmpbsa_ifv_mdiis_nvec){#mmpbsa_ifv_mdiis_nvec} (Default = 5)
 :   Number of previous iterations MDIIS uses to predict a new solution.
 
 
-`mdiis_restart` (Default = 10)
+[`mdiis_restart`](#mmpbsa_ifv_mdiis_restart){#mmpbsa_ifv_mdiis_restart} (Default = 10)
 :   If the current residual is mdiis_restart times larger than the smallest residual in memory, then the MDIIS 
 procedure is restarted using the lowest residual solution stored in memory. Increasing this number can sometimes 
 help convergence.
 
 
-`maxstep` (Default = 10000)
+[`maxstep`](#mmpbsa_ifv_maxstep){#mmpbsa_ifv_maxstep} (Default = 10000)
 :   Maximum number of iterations allowed to converge on a solution.
 
 
-`npropagate` (Default = 5)
+[`npropagate`](#mmpbsa_ifv_npropagate){#mmpbsa_ifv_npropagate} (Default = 5)
 :   Number of previous solutions propagated forward to create an initial guess for this solute atom configuration.
 
     * =0: Do not use any previous solutions
@@ -1553,14 +1553,14 @@ help convergence.
 
 #### **Output**
 
-`polardecomp` (Default = 0)
+[`polardecomp`](#mmpbsa_ifv_polardecomp){#mmpbsa_ifv_polardecomp} (Default = 0)
 :   Decomposes solvation free energy into polar and non-polar components. Note that this typically requires 80% more 
 computation time.
 
     * 0: Don’t decompose solvation free energy into polar and non-polar components. 
     * 1: Decompose solvation free energy into polar and non-polar components.
 
-`entropicdecomp` (Default = 0)
+[`entropicdecomp`](#mmpbsa_ifv_entropicdecomp){#mmpbsa_ifv_entropicdecomp} (Default = 0)
 :   Decomposes solvation free energy into energy and entropy components. Also performs temperature derivatives of other 
 calculated quantities. Note that this typically requires 80% more computation time and requires a `.xvv` file version 
 1.000 or higher (available within `GMXMMPBSA` data folder). 
@@ -1570,7 +1570,7 @@ See [§7.1.3](https://ambermd.org/doc12/Amber21.pdf#subsection.7.1.3) and
     * 0: No entropic decomposition
     * 1: Entropic decomposition
 
-`rism_verbose` (Default = 0)
+[`rism_verbose`](#mmpbsa_ifv_rism_verbose){#mmpbsa_ifv_rism_verbose} (Default = 0)
 :   Level of output in temporary RISM output files. May be helpful for debugging or following convergence. 
 
     * 0: just print the final result
@@ -1604,7 +1604,7 @@ See [§7.1.3](https://ambermd.org/doc12/Amber21.pdf#subsection.7.1.3) and
     * A sample alanine scanning input file is shown [here](input_file.md#alanine-scanning)
     * A tutorial on alanine scanning is available [here](examples/Alanine_scanning/README.md)
 
-`mutant_res` (Default = None. Must be defined)
+[`mutant_res`](#mmpbsa_ifv_mutant_res){#mmpbsa_ifv_mutant_res} (Default = None. Must be defined)
 :   Define the specific residue that is going to be mutated. Use the following format CHAIN/RESNUM (_e.g._: 'A/350') or 
 CHAIN/RESNUM INSERTION_CODE if applicable (_e.g._: "A/27B").
 
@@ -1617,13 +1617,13 @@ CHAIN/RESNUM INSERTION_CODE if applicable (_e.g._: "A/27B").
         provide the mutant topology
     
 
-`mutant` (Default = "ALA") 
+[`mutant`](#mmpbsa_ifv_mutant){#mmpbsa_ifv_mutant} (Default = "ALA") 
 :   Defines the residue that it is going to be mutated for. Allowed values are: 
 
     * `"ALA"` or `"A"`: Alanine scanning
     * `"GLY"` or `"G"`: Glycine scanning
 
-`mutant_only`  (Default = 0)
+[`mutant_only`](#mmpbsa_ifv_mutant_only){#mmpbsa_ifv_mutant_only}  (Default = 0)
 :   Option to perform specified calculations only for the mutants. 
 
     * 0: Perform calcultion on mutant and original
@@ -1633,7 +1633,7 @@ CHAIN/RESNUM INSERTION_CODE if applicable (_e.g._: "A/27B").
         Note that all calculation details are controlled in the other namelists, though for alanine scanning to be 
         performed, the namelist must be included (blank if desired)
 
-`cas_intdiel` (Default = 0)
+[`cas_intdiel`](#mmpbsa_ifv_cas_intdiel){#mmpbsa_ifv_cas_intdiel} (Default = 0)
 :   The dielectric constant (`intdiel`(GB)/`indi`(PB)) will be modified depending on the nature of the residue to be 
 mutated. 
     
@@ -1652,21 +1652,21 @@ mutated.
   [9]: https://pubs.acs.org/doi/10.1021/acs.jcim.6b00734
     
 
-`intdiel_nonpolar` (Default = 1)
+[`intdiel_nonpolar`](#mmpbsa_ifv_intdiel_nonpolar){#mmpbsa_ifv_intdiel_nonpolar} (Default = 1)
 :   Define the `intdiel`(GB)/`indi`(PB) value for non-polar residues (`PHE`, `TRP`, `VAL`, `ILE`, `LEU`, `MET`, `PRO`,
 `CYX`, `ALA`, `GLY`, `PRO`)
     
 
-`intdiel_polar` (Default = 3)
+[`intdiel_polar`](#mmpbsa_ifv_intdiel_polar){#mmpbsa_ifv_intdiel_polar} (Default = 3)
 :   Define the `intdiel`(GB)/`indi`(PB) value for polar residues (`TYR`, `SER`, `THR`, `CYM`, `CYS`, `HIE`, `HID`, 
 `ASN`, `GLN`, `ASH`, `GLH`, `LYN`)
     
 
-`intdiel_positive` (Default = 5)
+[`intdiel_positive`](#mmpbsa_ifv_intdiel_positive){#mmpbsa_ifv_intdiel_positive} (Default = 5)
 :   Define the `intdiel`(GB)/`indi`(PB) value for positive charged residues (`LYS`, `ARG`, `HIP`)
     
 
-`intdiel_negative` (Default = 5)
+[`intdiel_negative`](#mmpbsa_ifv_intdiel_negative){#mmpbsa_ifv_intdiel_negative} (Default = 5)
 :   Define the `intdiel`(GB)/`indi`(PB) value for negative charged residues (`GLU`, `ASP`)
     
 
@@ -1695,7 +1695,7 @@ mutated.
     * A sample decomp input file is shown [here](input_file.md#decomposition-analysis)
     * A tutorial on binding free energy decomposition is available [here](examples/Decomposition_analysis/README.md)
 
-`idecomp`
+[`idecomp`](#mmpbsa_ifv_idecomp){#mmpbsa_ifv_idecomp}
 :   Energy decomposition scheme to use:
     
     * 1: Per-residue decomp with 1-4 terms added to internal potential terms
@@ -1706,7 +1706,7 @@ mutated.
     !!! warning
         * No default. This must be specified!
 
-`dec_verbose` (Default = 0)
+[`dec_verbose`](#mmpbsa_ifv_dec_verbose){#mmpbsa_ifv_dec_verbose} (Default = 0)
 :   Set the level of output to print in the decomp_output file.
 
     * 0: DELTA energy, total contribution only
@@ -1718,7 +1718,7 @@ mutated.
         If the values 0 or 2 are chosen, only the Total contributions are required, so only those will be printed to the
         mdout files to cut down on the size of the mdout files and the time required to parse them.
 
-`print_res` (Default = "within 6")
+[`print_res`](#mmpbsa_ifv_print_res){#mmpbsa_ifv_print_res} (Default = "within 6")
 :   Select residues whose information is going to be printed in the output file. The default selection should be 
 sufficient in most cases, however we have added several additional notations
     
@@ -1781,7 +1781,7 @@ sufficient in most cases, however we have added several additional notations
         carefully the structure provided (-cs). 
 
 
-`csv_format`  (Default = 1)
+[`csv_format`](#mmpbsa_ifv_csv_format){#mmpbsa_ifv_csv_format}  (Default = 1)
 :   Print the decomposition output in a Comma-Separated-Values (CSV) file. CSV files open natively in most
 spreadsheets. 
 
@@ -1816,38 +1816,38 @@ spreadsheets.
 
 #### **Basic input options**
 
-`nmstartframe`[^2]
+[`nmstartframe`](#mmpbsa_ifv_nmstartframe){#mmpbsa_ifv_nmstartframe}[^2]
 :   Frame number to begin performing `nmode` calculations on 
 
   [^2]: _These variables will choose a subset of the frames chosen from the variables in the `&general` namelist. Thus,
         the "trajectory" from which snapshots will be chosen for `nmode` calculations will be the collection of 
         snapshots upon which the other calculations were performed._
 
-`nmendframe`[^2] (Default = 1000000)
+[`nmendframe`](#mmpbsa_ifv_nmendframe){#mmpbsa_ifv_nmendframe}[^2] (Default = 1000000)
 :   Frame number to stop performing `nmode` calculations on 
 
-`nminterval`[^2] (Default = 1)
+[`nminterval`](#mmpbsa_ifv_nminterval){#mmpbsa_ifv_nminterval}[^2] (Default = 1)
 :   Offset from which to choose frames to perform `nmode` calculations on
 
 #### **Parameter options**
 
-`nmode_igb` (Default = 1)
+[`nmode_igb`](#mmpbsa_ifv_nmode_igb){#mmpbsa_ifv_nmode_igb} (Default = 1)
 :   Value for Generalized Born model to be used in calculations. Options are:
     
     * 0: Vacuum
     * 1: HCT GB model 
 
-`nmode_istrng` (Default = 0.0)
+[`nmode_istrng`](#mmpbsa_ifv_nmode_istrng){#mmpbsa_ifv_nmode_istrng} (Default = 0.0)
 :   Ionic strength to use in `nmode` calculations. Units are Molarity (M). Non-zero values are ignored if `nmode_igb`
 is 0 above.
 
-`dielc` (Default = 1.0)
+[`dielc`](#mmpbsa_ifv_dielc){#mmpbsa_ifv_dielc} (Default = 1.0)
 :   Distance-dependent dielectric constant 
 
-`drms` (Default = 0.001)
+[`drms`](#mmpbsa_ifv_drms){#mmpbsa_ifv_drms} (Default = 0.001)
 :   Convergence criteria for minimized energy gradient.
 
-`maxcyc` (Default = 10000)
+[`maxcyc`](#mmpbsa_ifv_maxcyc){#mmpbsa_ifv_maxcyc} (Default = 10000)
 :   Maximum number of minimization cycles to use per snapshot in sander.
 
 ## Sample input files
