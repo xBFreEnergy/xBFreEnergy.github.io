@@ -72,20 +72,13 @@
 
 
 .title {
-    width: 70px;
-    height: 1.7rem;
     background-color: #F44A4A;
     color: #FFF;
-    font-size: .8rem;
     font-weight: 700;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 1;
-    display: flex;
+    float: left;
     align-items: center;
     justify-content: center;
-    /*padding: 1px 1px;*/
 }
 :root {
   --marquee-animation-duration: 10;
@@ -93,9 +86,6 @@
 }
 
 .marquee {
-  width: calc(100% - 30px);
-  height: 1.5rem;
-  /*background-color: #111;*/
   color: #eee;
   overflow: hidden;
   position: relative;
@@ -129,20 +119,20 @@
 
 .new-text {
   text-decoration: none;
-  color: #ffffff;
+  color: white !important;
 }
 
-.md-banner {
-    background-color: var(--md-footer-bg-color);
-    color: var(--md-footer-fg-color);
-    overflow: hidden;
-    height: 1.7rem;
-}
+/*.md-banner {*/
+/*    background-color: var(--md-footer-bg-color);*/
+/*    color: var(--md-footer-fg-color);*/
+/*    overflow: hidden;*/
+/*    height: 1.7rem;*/
+/*}*/
 
-.md-banner__inner {
-    margin: 0.1rem 0;
-    max-width: 100%;
-    height: 1.5rem;
-    padding: 0;
-}
+/*.md-banner__inner {*/
+/*    margin: 0.1rem 0;*/
+/*    max-width: 100%;*/
+/*    height: 1.5rem;*/
+/*    padding: 0;*/
+/*}*/
 
