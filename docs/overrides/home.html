@@ -4,12 +4,82 @@
 {% extends "main.html" %}
 {% block tabs %}
   {{ super() }}
-  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+<style>
+/* Important: required to stretch home */
+.md-grid {
+    max-width: 61rem
+}
+/* Important: hide the main content section in home */
+.md-main {
+  display: none;
+}
+
+</style>
   <section class="mdx-container">
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
         <div class="mdx-hero__image">
-          <img src="assets/images/illustration.png" alt="" width="1659" height="1200" draggable="false">
+            <div  class="animated_logo">
+              <object type="image/svg+xml" data="assets/animated_logo.svg"></object>
+            </div>
+          <div class="wrapper">
+
+            <div class="carousel">
+              <div class="carousel__item">
+              <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80" alt="song">
+              </label>
+              </div>
+              <div class="carousel__item">
+                <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" alt="song">
+
+                </label>
+              </div>
+              <div class="carousel__item">
+                <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="song">
+
+                </label>
+              </div>
+            <div class="carousel__item">
+              <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80" alt="song">
+
+              </label>
+              </div>
+              <div class="carousel__item">
+                <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" alt="song">
+
+                </label>
+              </div>
+              <div class="carousel__item">
+                <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="song">
+
+                </label>
+              </div>
+            <div class="carousel__item">
+              <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80" alt="song">
+
+              </label>
+              </div>
+              <div class="carousel__item">
+                <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" alt="song">
+
+                </label>
+              </div>
+              <div class="carousel__item">
+                <label class="card">
+                <img class="carousel__img" src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="song">
+
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="mdx-hero__content">
           <h1>Welcome to xBFreE documentation!</h1>
