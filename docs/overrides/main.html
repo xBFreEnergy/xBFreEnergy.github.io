@@ -10,9 +10,16 @@
   </a>
 {% endblock %}
 {% block extrahead %}
-  <link rel="stylesheet" href="{{ 'overrides/assets/stylesheets/main.c1d34250.min.css' | url }}">
-  <link rel="stylesheet" href="{{ 'overrides/stylesheets/global.css' | url }}">
-
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/global.css' | url }}">
+  <script src="{{ 'assets/js/news.js' | url }}"></script>
+      <script type="text/javascript">
+        loadNews("{{ 'news.json' | url }}")
+      </script>
+<style>
+.md-grid {
+    max-width: 80rem;
+}
+</style>
 
 {% endblock %}
 {% block announce %}
@@ -21,8 +28,5 @@
     <ul class="marquee-content" id="news-container">
     </ul>
   </div>
-      <script src="{{ 'assets/js/news.js' | url }}"></script>
-      <script type="text/javascript">
-        loadNews("{{ 'news.json' | url }}")
-      </script>
+
 {% endblock %}
