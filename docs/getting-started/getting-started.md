@@ -17,14 +17,6 @@ title: Getting started
 Energy (BFE) with multiples method for the most popular Molecular Dynamics Programs. xBFreE is not only the natural 
 evolution of gmx_MMPBSA, but also an ambitious project to democratice any BFE method in easy-to-use and better way.
 
-### Which programs are supported?
-Currently, we support four (4) programs:
-
-- GROMACS (`gmx`)
-- AMBER (`amber`)
-- NAMD (`namd`)
-- CHARMM (`charmm`)
-
 !!! note "Cite xBFreE"
     Coming soon!
 
@@ -46,21 +38,27 @@ Currently, we support four (4) programs:
     Please, visit [Cite gmx_MMPBSA](cite_us.md#example) page for more information on how to cite gmx_MMPBSA and the 
     programs/methods implemented in it.
 
-## **Installation**
-Ready to use **xBFreE** 😀? Check the [installation page](installation.md)
+### Which MD programs are supported?
+Currently, we support four (4) MD programs: 
+
+| GROMACS |  AMBER  |  NAMD  |  CHARMM  |
+|:-------:|:-------:|:------:|:--------:|
+|  `gmx`  | `amber` | `namd` | `charmm` |
 
 ## **What can be done with xBFreE?**
 Multiple calculations can be performed with **xBFreE** such as:
 
-* At the moment only MMPBSA can be performed.
-
+* At the moment only MMPBSA methodologies[^1] can be performed.
 
 ## **xBFreE** a quick overview
-[**xBFreE**](howworks.md) is a python application that carries out several BFE calculations. The **xBFreE** results can
-can be analyzed with [**xBFreE-Analyzer**](../analyzer.md) which provides an intuitive way to analyze the data through 
+[**xBFreE**](howworks.md) is a python application that carries out several BFE calculations. The **xBFreE** results can 
+be analyzed with [**xBFreE-Analyzer**](../analyzer.md) which provides an intuitive way to analyze the data through 
 visually and well-structured charts and save high-quality pictures. You can test if your **xBFreE** installation 
 work well using [**xBFreE-Tester**](../examples/gmx_MMPBSA_test.md#gmx_mmpbsa_test-command-line) by running one or more 
 available [examples](../examples/README.md) in **xBFreE**.
+
+## **Installation**
+Ready to use **xBFreE** 😀? Check the [installation page](installation.md)
 
 ## **Need help?**
 [Help](../Q&A/README.md) section contains the most frequently asked questions and errors. Also, look at our 
@@ -104,3 +102,6 @@ Feel free to contact us through our Google group (https://groups.google.com/x/xb
 
 ---
 We hope that **xBFreE** will help you
+
+
+  [^1]: Methodologies implemented in gmx_MMPBSA and others new specifics for this program

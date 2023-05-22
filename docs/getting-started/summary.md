@@ -39,7 +39,7 @@ There are many options available in **xBFreE**. These are some calculations you 
 * **Normal binding free energies**, with either PB, GB or 3D-RISM solvent models. Each can be done with either
 1, 2, or 3 different trajectories. The complex trajectory must always be provided. Whichever trajectories of the 
 receptor and/or ligand that are NOT specified will be extracted from that of the complex. This allows a 1-, 
-2-, or 3-trajectory analysis. All PB calculations and GB models are performed via the `sander` program. Calculations 
+2-, or 3-trajectory analysis. All PB calculations and GB models are performed via the **sander** program. Calculations 
 with 3D-RISM solvent model are performed with `rism3d.snglpnt` built with AmberTools.
 * **Stability** calculations with any solvent model (_i.e_ PB, GB or 3D-RISM).
 * **Alanine scanning** with either PB or GB implicit solvent models. All trajectories will be mutated to match

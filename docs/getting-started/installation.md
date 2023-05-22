@@ -4,23 +4,11 @@ title: Installation
 ---
 # **xBFreE** Installation
 
-!!! important "Dependencies"
-    **xBFreE** has several important dependencies:
-        
-    - mpi4py
-    - AmberTools20/21
-    - Gromacs
-
-    Depending on the installation mode, these dependencies can be installed by the user, be part of a precompiled 
-    package, or be required by an administrator. Please check each installation mode and make sure you have all of 
-    them supplied.
-
-
 Currently, **xBFreE** can be installed using three ways:
 
 - [Manual installation](#manual-installation)
-- [Docker Package](https://docs.alliancecan.ca/wiki/GROMACS#gmx_MMPBSA)
-- [Singularity Package](https://docs.alliancecan.ca/wiki/GROMACS#gmx_MMPBSA)
+- [Docker Package](https://docs.alliancecan.ca/wiki/GROMACS#gmx_MMPBSA) (coming soon!)
+- [Singularity Package](https://docs.alliancecan.ca/wiki/GROMACS#gmx_MMPBSA) (coming soon!)
 
 ## Manual installation
 You can carry out the installation of **xBFreE** in three ways: 
@@ -70,6 +58,12 @@ different versions of **xBFreE** in isolated environment, thus reducing the poss
 other packages. Differently to `conda environment` this environment only contain python packages and not 
 pre-compiled libraries.  
 
+??? warning "Require external dependencies"
+    In HPC, the admin recommends using a virtual environment instead of conda to take advantage of optimized 
+    compiled programs. In this case, you will require AmberTools, Gromacs, and other dependencies previously compiled 
+    (generally as modules)   
+    
+
 `AmberTools compilation` (Recommended when you need to modify sander o compile AmberTools in a specific way)
 :   In this way, we assume that you have AmberTools compiled on your machine and that you want to do an installation 
 without worrying about enabling or disabling conda environments. It also involves user compilation of GROMACS, which 
@@ -82,8 +76,7 @@ Before installing **xBFreE** we need to prepare the environment with all depende
 === "conda environment"
 
     !!! Info "Important"
-        Make sure to have conda installed in your computer. Check the third tab "Miniconda installation" for more 
-        info. 
+        Make sure to have conda installed in your computer. 
 
     === "`*.yml file`"    
         Installing **xBFreE** using a requierement yml file. 
@@ -108,8 +101,8 @@ Before installing **xBFreE** we need to prepare the environment with all depende
         ??? note "Copy described intructions"     
 
             ``` bash 
-            conda env create -n xbfree-env --file env.yml                                    # (1)
-            conda activate xbfree-env                                                        # (2)
+            conda env create -n xbfree-env --file env.yml                                    # (1)!
+            conda activate xbfree-env                                                        # (2)!
            
             ```
         
@@ -343,46 +336,68 @@ Coming soon!
 Coming soon!
 
 
-## Autocompletion script
-Since `gmx_MMPBSA` has many flags, we believe that this autocompletion can significantly improve productivity, be
-more user-friendly and reduce the number of unforced errors. That is why we created this script, which manages the
-autocompletion of the `gmx_MMPBSA`, `gmx_MMPBSA_ana` and `gmx_MMPBSA_test`.
+[//]: # (## Autocompletion script)
 
+[//]: # (Since `gmx_MMPBSA` has many flags, we believe that this autocompletion can significantly improve productivity, be)
 
-**Execution:**
-Enter the following command in the terminal:
-    
-    source /path/to/ambertools/lib/python3.x/site-packages/xbfree-env/xbfree-env.sh
+[//]: # (more user-friendly and reduce the number of unforced errors. That is why we created this script, which manages the)
 
-!!! tip
-    If you want it to be activated automatically, add that command to your .bashrc
+[//]: # (autocompletion of the `gmx_MMPBSA`, `gmx_MMPBSA_ana` and `gmx_MMPBSA_test`.)
 
-!!! warning
-    * This script requires that `gmx_MMPBSA`, `gmx_MMPBSA_ana` and `gmx_MMPBSA_test` be accessible in PATH
-    * If the command-line above end in error, please make sure the file has executed permissions. 
-        
-        On Ubuntu, Debian, Linux Mint or related:
-        
-        * GUI:
+[//]: # ()
+[//]: # ()
+[//]: # (**Execution:**)
 
-            * `Right-click on xbfree-env.sh file` >
+[//]: # (Enter the following command in the terminal:)
 
-            * `Properties` > 
+[//]: # (    )
+[//]: # (    source /path/to/ambertools/lib/python3.x/site-packages/xbfree-env/xbfree-env.sh)
 
-            * `Permissions` > 
+[//]: # ()
+[//]: # (!!! tip)
 
-            * `Mark the checkbox "Allow to execute the file as a program"`
-        
-        * Terminal:
-            
-                chmod 755 /path/to/ambertools/lib/python3.x/site-packages/xbfree-env/xbfree-env.sh
-    
-        
-**Once you make the source of xbfree-env.sh you can check its operation as follows:**
+[//]: # (    If you want it to be activated automatically, add that command to your .bashrc)
 
-_All you have to do is enter the name of the program in the terminal and press the tab key twice:_
-    
-    xbfree <tab> <tab>
+[//]: # ()
+[//]: # (!!! warning)
+
+[//]: # (    * This script requires that `gmx_MMPBSA`, `gmx_MMPBSA_ana` and `gmx_MMPBSA_test` be accessible in PATH)
+
+[//]: # (    * If the command-line above end in error, please make sure the file has executed permissions. )
+
+[//]: # (        )
+[//]: # (        On Ubuntu, Debian, Linux Mint or related:)
+
+[//]: # (        )
+[//]: # (        * GUI:)
+
+[//]: # ()
+[//]: # (            * `Right-click on xbfree-env.sh file` >)
+
+[//]: # ()
+[//]: # (            * `Properties` > )
+
+[//]: # ()
+[//]: # (            * `Permissions` > )
+
+[//]: # ()
+[//]: # (            * `Mark the checkbox "Allow to execute the file as a program"`)
+
+[//]: # (        )
+[//]: # (        * Terminal:)
+
+[//]: # (            )
+[//]: # (                chmod 755 /path/to/ambertools/lib/python3.x/site-packages/xbfree-env/xbfree-env.sh)
+
+[//]: # (    )
+[//]: # (        )
+[//]: # (**Once you make the source of xbfree-env.sh you can check its operation as follows:**)
+
+[//]: # ()
+[//]: # (_All you have to do is enter the name of the program in the terminal and press the tab key twice:_)
+
+[//]: # (    )
+[//]: # (    xbfree <tab> <tab>)
 
 ## Testing the operation of xBFreE
 After preparing everything to run `xBFreE`, it only remains to check its correct operation. To know how to do it, 
