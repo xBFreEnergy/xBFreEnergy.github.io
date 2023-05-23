@@ -1,6 +1,10 @@
 ---
 template: main.html
 title: xBFreE command-line for MMPBSA calculations
+tags:
+   - MMPBSA
+   - MMGBSA
+   - Command-Line
 ---
 
 ## **xBFreE** command-line for MMPBSA calculations
@@ -11,7 +15,7 @@ Each subcommand has their own arguments according to the MD program and method s
 
 === "GROMACS"
     
-    !!! note "For gmx_MMPBSA users!"
+    !!! gmx-mmpbsa "For gmx_MMPBSA users!"
         This subcommand keeps the name and is similar to previous gmx_MMPBSA
 
     <div class="termy">
