@@ -13,5 +13,6 @@
 *[QH]: Quasi-harmonic
 *[SASA]: Solvent Accessible Surface Area
 *[MD]: Molecular Dynamics
+*[sander]: Amber MD engine for energy calculation
 
 
