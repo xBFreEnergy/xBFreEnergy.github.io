@@ -145,13 +145,14 @@ The input file can be created using **xBFreE** by selecting the subcommand and t
 
 
 !!! Danger 
-    Note that several variables must be explicitly defined in the input file
+    - Note that several variables must be explicitly defined in the input file
+    - Define all the calculations will take a long time, so take care when you define the calculation you want to 
+    perform
 
 
 ## Format
 All the input variables are described below according to their respective namelists. Descriptions are taken from 
-original sources and modified accordingly when needed. Integers and floating point 
-variables should be typed as-is while strings should be put in either single- or double-quotes. All variables should be 
+original sources and modified accordingly when needed. All variables should be 
 set with `variable = value` and separated by commas is they appear in the same line. If the variables appear in different 
 lines, the comma is no longer needed. See several [examples](#sample-input-files) are shown below. As you will see, several 
 calculations can be performed in the same run (_i.e._ `&gb` and `&pb`; `&gb` and `&alanine_scanning`; `&pb` and
@@ -160,6 +161,9 @@ calculations can be performed in the same run (_i.e._ `&gb` and `&pb`; `&gb` and
 This style, while retaining the same Amber format (derived from Fortran), is aesthetically more familiar to the GROMACS
 style (`*.mdp`). However, it maintains the same essence, so it could be defined in any of the two format styles or even
 combined. See the formats below:
+
+??? gmx-mmpbsa "For gmx_MMPBSA and MMPBSA.py users!"
+    Note that the string format no requires de single- or double-quotes. However, you can put them if you wish  
 
 === "New format style "
     ``` title="New format style Input file example"
@@ -208,7 +212,7 @@ combined. See the formats below:
 [`sys_name`](#mmpbsa_ifv_sys_name){#mmpbsa_ifv_sys_name} (Default = None)
 :   Define the System Name. This is useful when trying to analyze several systems at the same time or calculating 
 the correlation between the predicted and the experimental energies. If the name is not defined, one will be assigned 
-when loading the system in `gmx_MMPBSA_ana` on a first-come, first-served basis.
+when loading the system in `gmx_MMPBSA_ana` on the loading order.
 
     !!! tip 
         The definition of the system name is entirely optional, however it can provide a better clarity during 
@@ -228,16 +232,77 @@ every 2nd frame beginning at startframe and ending less than or equal to endfram
 
 #### **Parameter options**
 
+[`temperature`](#mmpbsa_ifv_temperature){#mmpbsa_ifv_temperature} (Default = 298.15)  
+:   Specify the temperature (in K) used in the calculations.
+
 [`PBRadii`](#mmpbsa_ifv_PBRadii){#mmpbsa_ifv_PBRadii} (Default = "mbondi2")
-:   PBRadii to build amber topology files:
+:   PBRadii is the parameter that defines the radius that will be assigned to each atom during the calculation of 
+the solvation energy. You can combine multiple PBRadii for the same system!
+    
+    ??? gmx-mmpbsa "For gmx_MMPBSA users!"
+        Note that notation changes from number to string. We implemented a new function to assing radii, which allow 
+        customs radii defined by de user (for example, add Au radii to the `mbondi` radii) through the file path.    
 
-    * bondi, recommended when `igb = 7`
-    * mbondi, recommended when `igb = 1`
-    * mbondi2, recommended when `igb = 2` or `igb = 5`
-    * mbondi3, recommended when `igb = 8`
-    * mbondi_pb2
+    ??? info "Adding a new parameter file"
+        Depending on the method selected, this parameter will have a greater or lesser impact on the computed value. 
+        While in PB, this will only be used to compute the non-polar solvation component (ENPOLAR and EDISPER). In 
+        GB, it is used, in addition to the non-polar solvation component, to compute the effective Born radius. 
 
-        ??? note "_mbondi_pb2_ radii set"
+    * `bondi`
+        
+        ??? info "_bondi_ radii set"
+                        
+            |               | Description                                                                                                                                                                       |
+            |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended when `igb = 7`                                                                                                                                                        |
+            | Compatibility | `bondi` is a generic radii type, which means that the radii is assigned by atom properties for any type of molecule                                                               |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)                                                                         |
+            | Combination   | since `bondi` is a generic type, you can combine it with specific radii set (`tyl06` or `yamagishi`). Note you can't combine it with other generic radii or complete radii types. |
+
+    * `mbondi`
+        
+        ??? info "_mbondi_ radii set"
+                        
+            |               | Description                                                                                                                                                                             |
+            |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended when `igb = 1`                                                                                                                                                              |
+            | Compatibility | `mbondi` is a generic radii type, which means that the radii is assigned by atom properties for any type of molecule                                                                    |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)                                                                               |
+            | Combination   | since `mbondi` is a generic type, you can combine it with specific radii set (`tyl06` or `yamagishi`). Note you can't combine it with other generic radii or complete radii types. |
+                
+    * `mbondi2`
+            
+        ??? info "_mbondi2_ radii set"
+
+            |               | Description                                                                                                                                                                                   |
+            |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended when `igb = 2` or `igb = 5`                                                                                                                                                       |
+            | Compatibility | `mbondi2` is a generic radii type, which means that the radii is assigned by atom properties for any type of molecule                                                                         |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)                                                                                     |
+            | Combination   | since `mbondi2` is a generic type, you can combine it with specific radii set (`tyl06` or `yamagishi`). Note you can't combine it with other generic radii or complete radii types. |
+
+    * `mbondi3`
+
+        ??? info "_mbondi3_ radii set"
+            
+            |               | Description                                                                                                                                                                                        |
+            |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended when `igb = 8`                                                                                                                                                                         |
+            | Compatibility | `mbondi3` is a generic radii type, which means that the radii is assigned by atom properties for any type of molecule                                                                              |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)                                                                                          |
+            | Combination   | since `mbondi3` is a generic type, you can combine it with specific radii set (`tyl06` or `yamagishi`). Note you can't combine it with other generic radii or complete radii types. |
+
+    * `mbondi_pb2`
+
+        ??? info "_mbondi_pb2_ radii set"
+            
+            |               | Description                                                                                                                                                                                           |
+            |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended when `igb = 1`                                                                                                                                                                            |
+            | Compatibility | `mbondi_pb2` is a generic radii type, which means that the radii is assigned by atom properties for any type of molecule                                                                              |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)                                                                                             |
+            | Combination   | since `mbondi_pb2` is a generic type, you can combine it with specific radii set (`tyl06` or `yamagishi`). Note you can't combine it with other generic radii or complete radii types. |
+
             It is based on _mbondi_ radii set and contains a  new optimized set of halogen PB radii for halogenated 
             compounds (without extra point (EP) of charge) parametrized with General Amber Force Field (GAFF):
 
@@ -261,9 +326,17 @@ every 2nd frame beginning at startframe and ending less than or equal to endfram
             /
             ```
 
-    * mbondi_pb3
+    * `mbondi_pb3`
 
-        ??? note "_mbondi_pb3_ radii set"
+        ??? info "_mbondi_pb3_ radii set"
+            
+            |               | Description                                                                                                                                                                                 |
+            |---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended when `igb = 1`                                                                                                                                                                  |
+            | Compatibility | `mbondi_pb3` is a generic radii type, which means that the radii is assigned by atom properties for any type of molecule                                                                    |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)                                                                                   |
+            | Combination   | since `mbondi_pb3` is a generic type, you can combine it with specific radii set (`tyl06` or `yamagishi`). Note you can't combine it with other generic radii or complete radii types. |
+
             It is based on _mbondi_ radii set and contains a new optimized set of halogen PB radii for halogenated 
             compounds (without extra point (EP) of charge) parametrized with General Amber Force Field (GAFF):
 
@@ -288,27 +361,81 @@ every 2nd frame beginning at startframe and ending less than or equal to endfram
             /
             ```
             
-  [300]: https://pubs.acs.org/doi/full/10.1021/acs.jctc.9b00106
+    [300]: https://pubs.acs.org/doi/full/10.1021/acs.jctc.9b00106
 
-    * charmm_radii, compatible only with &pb
-        
-        ??? note "_charmm_radii_ radii set"
-            **Use only with systems prepared with CHARMM force fields**. This atomic radii set for Poisson-Boltzmann 
-            calculations has been derived from average solvent electrostatic charge distribution with explicit 
-            solvent. The accuracy has been tested with free energy perturbation with explicit solvent. Most of the 
-            values were taken from a _*radii.str_ file used in PBEQ Solver in 
-            [charmm-gui](https://www.charmm-gui.org/?doc=input/pbeqsolver).
-            * Radii for protein atoms in 20 standard amino acids from 
-            [Nina, Belogv, and Roux](https://pubs.acs.org/doi/10.1021/jp970736r)
-            * Radii for nucleic acid atoms (RNA and DNA) from 
-            [Banavali and Roux](https://pubs.acs.org/doi/abs/10.1021/jp025852v)
+    * `charmm_radii`
+
+        ??? info "_charmm_radii_ radii set"
+
+            |               | Description                                                                                                                         |
+            |---------------|-------------------------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended for CHARMM force field only. Compatible with &pb only                                                                   |
+            | Compatibility | `charmm_radii` is a complete radii type, which means that it contain radii for protein, nucleic acids, ligands and lipids molecules |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)                           |
+            | Combination   | can't be combined                                                                                                                   |
+
+            This atomic radii set for Poisson-Boltzmann calculations has been derived from average solvent 
+            electrostatic charge distribution with explicit solvent. The accuracy has been tested with free energy 
+            perturbation with explicit solvent. Most of the values were taken from a _*radii.str_ file used in PBEQ 
+            Solver in [charmm-gui](https://www.charmm-gui.org/?doc=input/pbeqsolver).
+
+            * Radii for protein atoms in 20 standard amino acids from [Nina, Belogv, and Roux](https://pubs.acs.org/doi/10.1021/jp970736r)
+            * Radii for nucleic acid atoms (RNA and DNA) from [Banavali and Roux](https://pubs.acs.org/doi/abs/10.1021/jp025852v)
             * Halogens and other atoms from [Fortuna and Costa](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00177)
-            
+    
+    * `tyl06` 
+        
+        ??? info "_tyl06_ radii set"
+                        
+            |               | Description                                                                                                      |
+            |---------------|------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended for protein and nucleic acids only. Recommended when `inp=2`                                         |
+            | Compatibility | `tyl06` is a semi-complete radii type, which means that it contain radii for protein and nucleic acids molecules |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)        |
+            | Combination   | can be combined with any generic radii set, for example, mbondi, mbondi2, etc.                                   |
 
+            The [Tan, Yang & Luo radii][255] are optimized for Amber atom types as in standard residues from the Amber 
+            database. Please see [the original study][255] on how these radii are optimized.
+        
+        ??? note "For Amber users!"
+            Note that this radii is the same applied when `radiopt=1`. However, as radiopt is not available in xbfree 
+            due to possible fails if the system contains other molecules types in addition to proteins and nucleic 
+            acids, then you have to apply it manually.  
 
-[`temperature`](#mmpbsa_ifv_temperature){#mmpbsa_ifv_temperature} (Default = 298.15)  
-:   Specify the temperature (in K) used in the calculations.
-   
+    * `yamagishi` 
+        
+        ??? info "_yamagishi_ radii set"
+                                    
+            |               | Description                                                                                                      |
+            |---------------|------------------------------------------------------------------------------------------------------------------|
+            | Recommended   | recommended for protein and nucleic acids only.                                                                  |
+            | Compatibility | `yamagishi` is a semi-complete radii type, which means that it contain radii for protein and nucleic acids molecules |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#)        |
+            | Combination   | can be combined with any generic radii set, for example, mbondi, mbondi2, etc.                                                                                                |
+
+            The [Yamgishi radii][256] are optimized for Amber atom types as in standard residues from the Amber 
+            database. Please see [the original study][256] on how these radii are optimized.
+
+    * `custom` 
+        
+        ??? info "Defining _custom_ radii set"
+                                                
+            |               | Description                                                                                               |
+            |---------------|-----------------------------------------------------------------------------------------------------------|
+            | Recommended   | it dependents of radii set type.                                                                          |
+            | Compatibility | it dependents of radii set type.                                                                          |
+            | Modification  | you can add parameters for new atoms or modify existing ones. Please see how to do it [here](pbradii.md#) |
+            | Combination   | it dependents of radii set type.                                                                          |
+
+            You can define a new custom radii set defining the path to the radii file (*.json) as follows:
+            `PBRadii = /home/user/wdir/custom_radii.json`
+            This allows you to define specific parameters for new atoms, change existing ones, or define your set of 
+            optimized radii. Please see ["How to create a custom radio set"](pbradii.md#)
+        
+
+    [255]: https://pubs.acs.org/doi/10.1021/jp063479b
+    [256]: https://doi.org/10.1002/jcc.23728
+
 #### **Entropy options**
 
 [`qh_entropy`](#mmpbsa_ifv_qh_entropy){#mmpbsa_ifv_qh_entropy} (Default = 0)
@@ -402,39 +529,30 @@ will be omitted in the correlation analysis
     * 0: Print only thread trajectories in *.mdcrd format
     * 1: Print a full traj and the thread trajectories in *.mdcrd format
 
-[`gmx_path`](#mmpbsa_ifv_gmx_path){#mmpbsa_ifv_gmx_path} 
-:   Define a path to search for GROMACS executables. This path takes precedence over the path defined
-in the PATH variable. In this path the following executables will be searched: `gmx`, `gmx_mpi`, `gmx_d`, or
-`gmx_mpi_d` (GROMACS > 5.x.x), and `make_ndx`, `editconf` and `trjconv` (GROMACS 4.x.x)
+[`exe_path`](#mmpbsa_ifv_exe_path){#mmpbsa_ifv_exe_path} 
+:   Define a list of path to search for executables (gromacs, namd, delphi, etc.). This path takes precedence over the 
+paths defined in the PATH variable. Please,
 
     !!! note "Keep in mind"
-        This variable is used when the GROMACS used to run the system differs from that of will be used for running 
-        the analyses. It takes the path to the GROMACS bin folder where the executables will be searched on. 
-        An example of the use of this variable is given below:
+        
+        * Note that if this variable is not defined, the necessary executables will be searched in the `PATH`.
+        * By defining this variable you can use other versions of the same program that are in other paths than the `PATH`
 
-            &general
-            sys_name="my_system",
-            verbose=2, forcefields="oldff/leaprc.ff99SBildn",leaprc.gaff"
-            gmx_path="/home/programs/gromacs/bin"
-            /
-            &gb
-            igb=5, saltcon=0.150  
-            /
-           
-            # replace this "/home/programs/gromacs/bin" with the path to the GROMACS you want to use.
+[`keep_files`](#mmpbsa_ifv_keep_files){#mmpbsa_ifv_keep_files} (Default = 1)
+:   Defines if temporary files will be deleted or not.
 
-[`keep_files`](#mmpbsa_ifv_keep_files){#mmpbsa_ifv_keep_files} (Default = 2)
-:   Specifies which files are kept.
-
-    * 0: Keep only binary file (_COMPACT_gmx_MMPBSA_RESULTS.mmxsa_)
-    * 1: Keep all temporary files (_prefix_*)
-    * 2: Keep all temporary files (_prefix_*) and binary file
-
+    * 0: Remove all temporary files 
+    * 1: Keep all temporary files
+    
     !!! note "Keep in mind"
-        The binary file contains all the information necessary to analyze the data with gmx_MMPBSA_ana. Its 
-        use is only recommended in special cases where the original 
-        raw data is not present. We recommnend to use `keep_files = 1` or `keep_files = 2` to 
-        avoid errors when using `gmx_MMPBSA_ana`
+        * Please note that temporary files may be required for compatibility with higher versions.
+        * If you remove the temporary files you won't be able to do --rewrite-output to change some aspects of the 
+        output like verbose
+    
+    ??? gmx-mmpbsa "For gmx_MMPBSA users!"
+        Since we have improved the workflow to be more organized, this variable is different in gmx_MMPBSA. In this 
+        case, the binary file becomes the output for the default analysis.
+    
 
 [`netcdf`](#mmpbsa_ifv_netcdf){#mmpbsa_ifv_netcdf} (Default = 0)
 :   Specifies whether to use NetCDF trajectories internally rather than writing temporary ASCII trajectory
@@ -444,11 +562,15 @@ However, this option is incompatible with alanine scanning.
     * 0: Do NOT use temporary NetCDF trajectories
     * 1: Use temporary NetCDF trajectories
 
-[`solvated_trajectory`](#mmpbsa_ifv_solvated_trajectory){#mmpbsa_ifv_solvated_trajectory} (Default = 1)
-:   Define if it is necessary to generate a clean trajectory with no water and ions.
+[`process_trajectory`](#mmpbsa_ifv_process_trajectory){#mmpbsa_ifv_process_trajectory} (Default = 1)
+:   Define if it is necessary to generate a clean trajectory, including remove water, ions or select molecules.
     
     * 0: Don’t
     * 1: Generate clean trajectory
+
+    ??? gmx-mmpbsa "For gmx_MMPBSA users!"
+        Replace `solvated_trajecotry`.
+
 
 [`verbose`](#mmpbsa_ifv_verbose){#mmpbsa_ifv_verbose} (Default = 1)
 :   Specifies how much output is printed in the output file.
@@ -637,20 +759,6 @@ the same used for `print_res` variable in `&decomp` namelist.
             === "Wrong notation"
                 `qm_residues="A/5-6B,6D-7` Will end in error.
 
-[`qmcharge_com`](#mmpbsa_ifv_qmcharge_com){#mmpbsa_ifv_qmcharge_com} (Default = 0)
-:   The charge of the quantum section for the complex.
-
-    _Deprecated in v1.5.0: Now, `qmcharge_com` is assigned automatically based on the selection_
-
-[`qmcharge_lig`](#mmpbsa_ifv_qmcharge_lig){#mmpbsa_ifv_qmcharge_lig} (Default = 0)
-:   The charge of the quantum section of the ligand.
-
-    _Deprecated in v1.5.0: Now, `qmcharge_lig` is assigned automatically based on the selection_
-
-[`qmcharge_rec`](#mmpbsa_ifv_qmcharge_rec){#mmpbsa_ifv_qmcharge_rec} (Default = 0)
-:   The charge of the quantum section for the receptor.
-
-    _Deprecated in v1.5.0: Now, `qmcharge_rec` is assigned automatically based on the selection_
 
 [`qmcut`](#mmpbsa_ifv_qmcut){#mmpbsa_ifv_qmcut} (Default = 9999.0)
 :   The cutoff for the qm/mm charge interactions.
@@ -670,14 +778,6 @@ on the very first step to a file named qmmm_region.pdb.
 
 [`peptide_corr`](#mmpbsa_ifv_peptide_corr){#mmpbsa_ifv_peptide_corr} (Default = 0)
 :   Apply MM correction to peptide linkages. This correction is of the form: 
-
-[comment]: <> (    <img src="https://latex.codecogs.com/svg.)
-
-[comment]: <> (    image?E_{scf}&space;=&space;E_{scf}&space;&plus;&space;h_{type}&#40;i_{type}&#41;)
-
-[comment]: <> (    *sin^{2}\phi" title="https://latex.codecogs.com/svg.image?E_{scf} = E_{scf} + h_{type}&#40;i_{type}&#41;*sin^{2}\phi )
-
-[comment]: <> (    align="center""/>)
 
     $$
     E_{scf} = E_{scf} + h_{type}(i_{type}) * sin^{2}\phi
@@ -759,11 +859,13 @@ on the very first step to a file named qmmm_region.pdb.
 #### **Options to select numerical procedures**
 
 [`space`](#mmpbsa_ifv_space){#mmpbsa_ifv_space} (Default = 0.5)
-:   Sets the grid spacing that determines the resolution of the solute molecular surface. Note that memory footprint of 
-this grid-based implementation of GBNSR6 may become large for large structures, e.g. the nucleosome (about 25,000 
-atoms) will take close to 2 GB of RAM when the default grid spacing is used. For very large structures, one may 
-consider increasing the value of space, which will reduce the memory footprint and execution time; however, the 
-accuracy will also decrease.
+:   Sets the grid spacing that determines the resolution of the solute molecular surface. 
+
+    !!! note "Keep in mind"
+        Note that memory footprint of this grid-based implementation of GBNSR6 may become large for large structures,
+        e.g. the nucleosome (about 25,000 atoms) will take close to 2 GB of RAM when the default grid spacing is 
+        used. For very large structures, one may consider increasing the value of space, which will reduce the 
+        memory footprint and execution time; however, the accuracy will also decrease.
 
 [`arcres`](#mmpbsa_ifv_arcres){#mmpbsa_ifv_arcres} (Default = 0.2)
 :   Arc resolution used for numerical integration over molecular surface.
@@ -1297,6 +1399,16 @@ summation of the atomic SASA’s. A molecular SASA is used for both PB dielectri
   [7]: https://ambermd.org/doc12/Amber21.pdf#chapter.7
   [8]: https://ambermd.org/doc12/Amber21.pdf#subsection.36.3.2
 
+[`xvv`](#mmpbsa_ifv_xvv){#mmpbsa_ifv_xvv} (Default = "tip3p")
+:   Define the selected solvent for 3D-RISM. These solvent xvv files are contained in xBFreE, but you can define a 
+new one simply adding the file path.
+
+    * tip3p
+    * spc
+    * spc-nacl-3
+    * spc_mmpbsa_py
+
+
 #### **Closure approximations**
 
 [`closure`](#mmpbsa_ifv_closure){#mmpbsa_ifv_closure} (Default = "kh")
@@ -1312,9 +1424,9 @@ pdf#subsection.7.3.1))
 
     !!! example "Examples"
         === "One closure"
-                 closure="pse3"
+                 closure = pse3
         === "Several closures"
-                 closure="kh","pse3"
+                 closure = kh, pse3
 
 #### **Solvation free energy corrections**
 
@@ -1488,24 +1600,24 @@ accuracy and how this interacts with `ljTolerance`, `buffer`, and `solvbox`. Thr
 
     !!! example "Examples"
         === "One closure/One tolerance"
-                closure="pse3", tolerance=0.00001
+                closure = pse3, tolerance=0.00001
             
-            A tolerance of 0.00001 will be used for clousure "pse3"
+            A tolerance of `0.00001` will be used for clousure `pse3`
         === "Several closures/One tolerance"
-                 closure="kh","pse3", tolerance=0.00001
+                 closure = kh, pse3, tolerance=0.00001
 
-            A tolerance of 1 will be used for clousure "kh", while 0.00001 will be used for clousure "pse3". 
-            Equivalent to `closure="kh", "pse3", tolerance=1,0.00001`
+            A tolerance of `1` will be used for clousure `kh`, while `0.00001` will be used for clousure `pse3`. 
+            Equivalent to `closure = kh, pse3, tolerance=1,0.00001`
         === "Several closures/Two tolerances"
-                 closure="kh","pse2","pse3", tolerance=0.01,0.00001
+                 closure = kh, pse2, pse3, tolerance=0.01, 0.00001
 
-            A tolerance of 0.01 will be used for clousures "kh" and "pse2", while 0.00001 will be used for clousure 
-            "pse3". Equivalent to `closure="kh","pse2","pse3", tolerance=0.01,0.01,0.00001`
+            A tolerance of `0.01` will be used for clousures `kh` and `pse2`, while `0.00001` will be used for clousure 
+            `pse3`. Equivalent to `closure = kh, pse2, pse3, tolerance=0.01,0.01,0.00001`
         === "Several closures/Several tolerances"
-                 closure="kh","pse2","pse3", tolerance=0.1,0.01,0.00001
+                 closure = kh,pse2,pse3, tolerance=0.1,0.01,0.00001
 
-            A tolerance of 0.1 will be used for clousure "kh", 0.01 will be used for clousure "pse2", while 0.00001 
-            will be used for clousure "pse3".
+            A tolerance of `0.1` will be used for clousure `kh`, `0.01` will be used for clousure `pse2`, while `0.00001` 
+            will be used for clousure `pse3`.
 
 
 [`ljTolerance`](#mmpbsa_ifv_ljTolerance){#mmpbsa_ifv_ljTolerance} (Default = -1)
@@ -1520,9 +1632,9 @@ range asymptotic cutoff distance based on the desired accuracy of the calculatio
 See [§7.2.3](https://ambermd.org/doc12/Amber21.pdf#subsection.7.2.3) for details on how this affects numerical 
 accuracy. Possible values are:
 
-    * when < 0: asympKSpaceTolerance = tolerance/10
-    * when = 0: no cutoff
-    * when > 0: given value determines the maximum error in the reciprocal-space long range asymptotics calculations
+    * `when < 0`: asympKSpaceTolerance = tolerance/10
+    * `when = 0`: no cutoff
+    * `when > 0`: given value determines the maximum error in the reciprocal-space long range asymptotics calculations
 
 
 [`mdiis_del`](#mmpbsa_ifv_mdiis_del){#mmpbsa_ifv_mdiis_del} (Default = 0.7)
@@ -1584,29 +1696,39 @@ See [§7.1.3](https://ambermd.org/doc12/Amber21.pdf#subsection.7.1.3) and
     * A default alanine scanning input file can be created as follows:
 
         === "GROMACS"
-            ```
-            xbfree gmx_MMPBSA --create_input ala
-            ```
-        === "AMBER"
-            ```
-            xbfree amber_MMPBSA --create_input ala
-            ```
-        === "NAMD"
-            ```
-            xbfree namd_MMPBSA --create_input ala
-            ```
-        === "CHARMM"
-            ```
-            xbfree charmm_MMPBSA --create_input ala
+            ```bash
+            xbfree gmx_MMPBSA --create_input ala                # (1)! 
             ```
             
-    
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
+        === "AMBER"
+            ```bash
+            xbfree amber_MMPBSA --create_input ala              # (1)! 
+            ```
+            
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
+        === "NAMD"
+            ```bash
+            xbfree namd_MMPBSA --create_input ala               # (1)! 
+            ```
+            
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
+        === "CHARMM"
+            ```bash
+            xbfree charmm_MMPBSA --create_input ala             # (1)! 
+            ```
+            
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
     * A sample alanine scanning input file is shown [here](input_file.md#alanine-scanning)
     * A tutorial on alanine scanning is available [here](examples/Alanine_scanning/README.md)
 
 [`mutant_res`](#mmpbsa_ifv_mutant_res){#mmpbsa_ifv_mutant_res} (Default = None. Must be defined)
-:   Define the specific residue that is going to be mutated. Use the following format CHAIN/RESNUM (_e.g._: 'A/350') or 
-CHAIN/RESNUM INSERTION_CODE if applicable (_e.g._: "A/27B").
+:   Define the specific residue that is going to be mutated. Use the following format CHAIN/RESNUM (_e.g._: A/350) or 
+CHAIN/RESNUM INSERTION_CODE if applicable (_e.g._: A/27B).
 
     !!! important
         * Only one residue can be mutated per calculation!
@@ -1617,11 +1739,11 @@ CHAIN/RESNUM INSERTION_CODE if applicable (_e.g._: "A/27B").
         provide the mutant topology
     
 
-[`mutant`](#mmpbsa_ifv_mutant){#mmpbsa_ifv_mutant} (Default = "ALA") 
+[`mutant`](#mmpbsa_ifv_mutant){#mmpbsa_ifv_mutant} (Default = ALA) 
 :   Defines the residue that it is going to be mutated for. Allowed values are: 
 
-    * `"ALA"` or `"A"`: Alanine scanning
-    * `"GLY"` or `"G"`: Glycine scanning
+    * `ALA` or `A`: Alanine scanning
+    * `GLY` or `G`: Glycine scanning
 
 [`mutant_only`](#mmpbsa_ifv_mutant_only){#mmpbsa_ifv_mutant_only}  (Default = 0)
 :   Option to perform specified calculations only for the mutants. 
@@ -1676,35 +1798,44 @@ mutated.
     * A default decomp input file can be created as follows:
 
         === "GROMACS"
+            ```bash
+            xbfree gmx_MMPBSA --create_input decomp         # (1)! 
             ```
-            xbfree gmx_MMPBSA --create_input decomp
-            ```
+            
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
         === "AMBER"
+            ```bash
+            xbfree amber_MMPBSA --create_input decomp           # (1)! 
             ```
-            xbfree amber_MMPBSA --create_input decomp
-            ```
+            
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
         === "NAMD"
+            ```bash
+            xbfree namd_MMPBSA --create_input decomp            # (1)! 
             ```
-            xbfree namd_MMPBSA --create_input decomp
-            ```
+            
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
         === "CHARMM"
+            ```bash
+            xbfree charmm_MMPBSA --create_input decomp          # (1)! 
             ```
-            xbfree charmm_MMPBSA --create_input decomp
-            ```
+            
+            1.  Remember to define an energy method, for example `GB`, `PB`, etc.
+
     
     * A sample decomp input file is shown [here](input_file.md#decomposition-analysis)
     * A tutorial on binding free energy decomposition is available [here](examples/Decomposition_analysis/README.md)
 
-[`idecomp`](#mmpbsa_ifv_idecomp){#mmpbsa_ifv_idecomp}
+[`idecomp`](#mmpbsa_ifv_idecomp){#mmpbsa_ifv_idecomp} (Default = None. Must be defined)
 :   Energy decomposition scheme to use:
     
     * 1: Per-residue decomp with 1-4 terms added to internal potential terms
     * 2: Per-residue decomp with 1-4 EEL added to EEL and 1-4 VDW added to VDW potential terms
     * 3: Pairwise decomp with 1-4 terms added to internal potential terms
     * 4: Pairwise decomp with 1-4 EEL added to EEL and 1-4 VDW added to VDW potential terms
-
-    !!! warning
-        * No default. This must be specified!
 
 [`dec_verbose`](#mmpbsa_ifv_dec_verbose){#mmpbsa_ifv_dec_verbose} (Default = 0)
 :   Set the level of output to print in the decomp_output file.
@@ -1816,18 +1947,29 @@ spreadsheets.
 
 #### **Basic input options**
 
-[`nmstartframe`](#mmpbsa_ifv_nmstartframe){#mmpbsa_ifv_nmstartframe}[^2]
+[`nmstartframe`](#mmpbsa_ifv_nmstartframe){#mmpbsa_ifv_nmstartframe}
 :   Frame number to begin performing `nmode` calculations on 
 
-  [^2]: _These variables will choose a subset of the frames chosen from the variables in the `&general` namelist. Thus,
+    !!! note  
+        This variable will choose a subset of the frames chosen from the variables in the `&general` namelist. Thus,
         the "trajectory" from which snapshots will be chosen for `nmode` calculations will be the collection of 
-        snapshots upon which the other calculations were performed._
+        snapshots upon which the other calculations were performed.
 
-[`nmendframe`](#mmpbsa_ifv_nmendframe){#mmpbsa_ifv_nmendframe}[^2] (Default = 1000000)
+[`nmendframe`](#mmpbsa_ifv_nmendframe){#mmpbsa_ifv_nmendframe} (Default = 1000000)
 :   Frame number to stop performing `nmode` calculations on 
 
-[`nminterval`](#mmpbsa_ifv_nminterval){#mmpbsa_ifv_nminterval}[^2] (Default = 1)
+    !!! note  
+        This variable will choose a subset of the frames chosen from the variables in the `&general` namelist. Thus,
+        the "trajectory" from which snapshots will be chosen for `nmode` calculations will be the collection of 
+        snapshots upon which the other calculations were performed.
+
+[`nminterval`](#mmpbsa_ifv_nminterval){#mmpbsa_ifv_nminterval} (Default = 1)
 :   Offset from which to choose frames to perform `nmode` calculations on
+
+    !!! note  
+        This variable will choose a subset of the frames chosen from the variables in the `&general` namelist. Thus,
+        the "trajectory" from which snapshots will be chosen for `nmode` calculations will be the collection of 
+        snapshots upon which the other calculations were performed.
 
 #### **Parameter options**
 
