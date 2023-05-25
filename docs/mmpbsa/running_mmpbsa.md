@@ -120,18 +120,13 @@ calculation, please make sure:
         [issue](https://github.com/Valdes-Tresanco-MS/gmx_MMPBSA/issues/26) to see the output.
 
     !!! warning
-        The nmode calculations require a considerable amount of RAM. Consider that the total amount of RAM will be:
+        The PB/3D-RIMS/NMODE calculations require a considerable amount of RAM. Consider that the total amount of RAM 
+        will be:
 
         RAM~total~ = RAM~1_frame~ * NUM of Threads
         
         If it consumes all the RAM of the system it can cause crashes, instability or system shutdown!
-        
 
-    !!! note
-        At a certain level, running RISM in parallel may actually hurt performance, since previous solutions are used 
-        as an initial guess for the next frame, hastening convergence. Running in parallel loses this advantage. Also, 
-        due to the overhead involved in which each thread is required to load every topology file when calculating 
-        energies, parallel scaling will begin to fall off as the number of threads reaches the number of frames. 
 
 === "Serial version"
     This version is installed via pip as described above. `AMBERHOME` variable must be set, or it will quit with an error. 
