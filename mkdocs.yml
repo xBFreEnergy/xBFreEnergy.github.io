@@ -4,7 +4,7 @@ site_name: xBFreE Documentation
 site_url: https://xBFreEnergy.github.io/dev/
 site_author: Mario S. and Mario E. Valdés-Tresanco
 site_description: >-
-  xBFreE is a tool for Binding Free Energy calculations for (almost) every existing MD program
+  xBFreE is a tool for Binding Free Energy calculations
 
 # Repository
 repo_name: xBFreEnergy.github.io
@@ -22,7 +22,7 @@ copyright: Copyright &copy; 2020 - 2023 MS. and ME. Valdés-Tresanco
 # Configuration
 theme:
   name: material
-  logo: assets/logo_white_border.svg
+  logo: assets/logo.svg
   custom_dir: docs/overrides
 
 
@@ -96,6 +96,8 @@ theme:
 
 # Plugins
 plugins:
+  - tags:
+      tags_file: tags.md
   - search
   - git-revision-date-localized:
       type: timeago
@@ -269,6 +271,7 @@ nav:
       - Changelog: changelog.md
       - Compatibility: compatibility.md
       - Private Policy: private_policy.md
+      - Tags: tags.md
   - Cite xBFreE: cite_us.md
 
 extra_css:
