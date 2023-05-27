@@ -238,19 +238,19 @@ every 2nd frame beginning at startframe and ending less than or equal to endfram
 [`PBRadii`](#mmpbsa_ifv_PBRadii){#mmpbsa_ifv_PBRadii} (Default = "mbondi2")
 :   PBRadii is the parameter that defines the radius that will be assigned to each atom during the calculation of 
 the solvation energy. You can combine multiple PBRadii for the same system!
-    
+
+    ??? warning "Effect of radii on energy calculations"
+        Depending on the method selected, this parameter will have a greater or lesser impact on the computed value. 
+        While in PB, this will only be used to compute the non-polar solvation component (`ENPOLAR` and `EDISPER`). In 
+        GB, it is used, in addition to the non-polar solvation component, to compute the effective Born radius. 
+
     ??? gmx-mmpbsa "For gmx_MMPBSA users!"
         Note that notation changes from number to string. We implemented a new function to assing radii, which allow 
         customs radii defined by de user (for example, add Au radii to the `mbondi` radii) through the file path.    
 
-    ??? info "Adding a new parameter file"
-        Depending on the method selected, this parameter will have a greater or lesser impact on the computed value. 
-        While in PB, this will only be used to compute the non-polar solvation component (ENPOLAR and EDISPER). In 
-        GB, it is used, in addition to the non-polar solvation component, to compute the effective Born radius. 
-
     * `bondi`
         
-        ??? info "_bondi_ radii set"
+        ??? info "`bondi` radii set"
                         
             |               | Description                                                                                                                                                                       |
             |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -261,7 +261,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
 
     * `mbondi`
         
-        ??? info "_mbondi_ radii set"
+        ??? info "`mbondi` radii set"
                         
             |               | Description                                                                                                                                                                             |
             |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -272,7 +272,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
                 
     * `mbondi2`
             
-        ??? info "_mbondi2_ radii set"
+        ??? info "`mbondi2` radii set"
 
             |               | Description                                                                                                                                                                                   |
             |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -283,7 +283,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
 
     * `mbondi3`
 
-        ??? info "_mbondi3_ radii set"
+        ??? info "`mbondi3` radii set"
             
             |               | Description                                                                                                                                                                                        |
             |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -294,7 +294,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
 
     * `mbondi_pb2`
 
-        ??? info "_mbondi_pb2_ radii set"
+        ??? info "`mbondi_pb2` radii set"
             
             |               | Description                                                                                                                                                                                           |
             |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -328,7 +328,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
 
     * `mbondi_pb3`
 
-        ??? info "_mbondi_pb3_ radii set"
+        ??? info "`mbondi_pb3` radii set"
             
             |               | Description                                                                                                                                                                                 |
             |---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -365,7 +365,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
 
     * `charmm_radii`
 
-        ??? info "_charmm_radii_ radii set"
+        ??? info "`charmm_radii` radii set"
 
             |               | Description                                                                                                                         |
             |---------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -385,7 +385,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
     
     * `tyl06` 
         
-        ??? info "_tyl06_ radii set"
+        ??? info "`tyl06` radii set"
                         
             |               | Description                                                                                                      |
             |---------------|------------------------------------------------------------------------------------------------------------------|
@@ -404,7 +404,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
 
     * `yamagishi` 
         
-        ??? info "_yamagishi_ radii set"
+        ??? info "`yamagishi` radii set"
                                     
             |               | Description                                                                                                      |
             |---------------|------------------------------------------------------------------------------------------------------------------|
@@ -418,7 +418,7 @@ the solvation energy. You can combine multiple PBRadii for the same system!
 
     * `custom` 
         
-        ??? info "Defining _custom_ radii set"
+        ??? info "Defining a `custom` radii set"
                                                 
             |               | Description                                                                                               |
             |---------------|-----------------------------------------------------------------------------------------------------------|
