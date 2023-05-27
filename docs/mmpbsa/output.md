@@ -5,11 +5,70 @@ title: Output files
 
 # Output Files
 
+## Project folder structure
+The project structure in gmx_MMPBSA was not the best. The number of temporary files could be considerable depending 
+on the type of calculation, reaching an absurd amount when many CPUs were used in parallel. A large number of files 
+in a folder presents several problems. First, since it is generated in the same folder as the input files, it is 
+hard to use them. Second, because of the large number, it becomes problematic to find a specific file. Lastly, 
+folders with many files are not easy to handle for the GUI of operating systems due to indexing.     
+Of all the above, we decided to make some changes to the project structure. Now, a folder called xBFReE_RESULTS is 
+generated in the working folder. Inside this, a folder is generated for each type of calculation, currently only 
+mmpbsa, which contains all the temporary files. Since they are isolated, the `_GMXMMPBSA_` prefix is not required.  
+
+```bash  title="WDIR structure for xbfree gmx_MMPBSA"
+.
+├── com.pdb    # (1)!  
+├── com.tpr    # (2)!
+├── com_traj.xtc    # (3)!
+├── index.ndx    # (4)!
+├── mmpbsa.in    # (5)!
+├── topol.top    # (6)!
+├── toppar    # (7)!
+│   ├── forcefield.itp
+│   ├── PROA.itp
+│   ├── PROB.itp
+│   ...
+│   └── TP3.itp
+├── xBFreE.log    # (8)!
+├── FINAL_RESULTS_MMPBSA.dat    # (9)!
+├── COMPACT_RESULTS_MMPBSA.xbfree    # (10)!
+└── xBFreE_RESULTS    # (11)!
+    └── mmpbsa    # (12)!
+        ├── COM_FIXED.pdb
+        ├── COM_index.ndx
+        ├── complex_gb.mdout.0
+        ...
+        ├── REC.pdb
+        ├── REC.prmtop
+        └── restrt.0
+```
+
+1. PDB file commonly used as reference structure (-cr)
+2. TPR file used as structure (-cs)
+3. XTC file used as trajectory (-ct)
+4. NDX file used as index (-ci)
+5. Input file (-i)
+6. Topology file (-cp)
+7. Force field parameter folder from CHARMM-GUI
+8. Logging file 
+9. Plain text result file 
+10. Binary file containing all the data
+11. Results folder
+12. Folder for temporary files of mmpbsa calculations
+
+!!! important 
+    Note that the result files (`FINAL_RESULTS_MMPBSA.dat`, `DECOMP_RESULTS_MMPBSA.dat` and 
+    `COMPACT_RESULTS_MMPBSA.xbfree`) are in the working directory
+
+
 ## The output file
+`FINAL_RESULTS_MMPBSA.dat` and `DECOMP_RESULTS_MMPBSA.dat` are kept unchanged as plain text result files
 
-This is how a typical output file ("FINAL_RESULTS_MMPBSA.dat" by default) looks like:
+`COMPACT_RESULTS_MMPBSA.xbfree` is the file that will be used by default with xBFReE-Analyzer.
 
-```  yaml title="Output file"
+This is how a typical output file (`FINAL_RESULTS_MMPBSA.dat` by default) looks like:
+
+```  yaml title="FINAL_RESULTS_MMPBSA.dat"
 | Run on Tue Feb  8 22:31:58 2022                                                     | # (1)! 
 |                                                                                     +       
 |gmx_MMPBSA Version=v1.4.3+462.gf64aa73 based on MMPBSA.py v.16.0                     | # (2)! 
@@ -178,136 +237,30 @@ statistics.
 
 ## Temporary files
 
-!!! warning
-    This section does not record all the temporary files that are currently generated.
+!!! gmx-mmpbsa "For gmx_MMPBSA users!"
+    This section and the temporary files structure are different to gmx_MMPBSA. 
 
-`gmx_MMPBSA` creates working files during the execution of the script beginning with the prefix `_GMXMMPBSA_`.
-If `gmx_MMPBSA` does not finish successfully, several of these files may be helpful in diagnosing the problem. For that
-reason, every temporary file is described below. Note that not every temporary file is generated in every simulation. At
-the end of each description, the lowest value of the original “keep_files” variable that will retain this file will be
-shown in parentheses. Nevertheless, in the current version, all the files are retained for plotting purposes.
+If `xbfree` does not finish successfully, several of these files may be helpful in diagnosing the problem. For that
+reason, every temporary file is described below. Note that not every temporary file is generated in every simulation. 
 
-`gmx_MMPBSA.log` This file contains the output coming from `gmx_MMPBSA`.
-
-`leap.log` This file contains the output coming from tleap program.
-
-`_GMXMMPBSA_gb.mdin` Input file that controls the GB calculation done in sander. (2)
-
-`_GMXMMPBSA_pb.mdin` Input file that controls the PB calculation done in sander. (2)
-
-`_GMXMMPBSA_gb_decomp_com.mdin` Input file that controls the GB decomp calculation for the complex done in sander. (2)
-
-`_GMXMMPBSA_gb_decomp_rec.mdin` Input file that controls the GB decomp calculation for the receptor done in sander. (2)
-
-`_GMXMMPBSA_gb_decomp_lig.mdin` Input file that controls the GB decomp calculation for the ligand done in sander.
-(2)
-
-`_GMXMMPBSA_pb_decomp_com.mdin` Input file that controls the PB decomp calculation for the complex done in sander. (2)
-
-`_GMXMMPBSA_pb_decomp_rec.mdin` Input file that controls the PB decomp calculation for the receptor done in sander. (2)
-
-`_GMXMMPBSA_pb_decomp_lig.mdin` Input file that controls the PB decomp calculation for the ligand done in sander.
-(2)
-
-`_GMXMMPBSA_gb_qmmm_com.mdin` Input file that controls the GB QM/MM calculation for the complex done in sander.
-(2)
-
-`_GMXMMPBSA_gb_qmmm_rec.mdin` Input file that controls the GB QM/MM calculation for the receptor done in sander.
-(2)
-
-`_GMXMMPBSA_gb_qmmm_lig.mdin` Input file that controls the GB QM/MM calculation for the ligand done in sander.
-(2)
-
-`_GMXMMPBSA_complex.mdcrd.#` Trajectory file(s) that contains only those complex snapshots that will be processed by
-MMPBSA.py. (1)
-
-`_GMXMMPBSA_ligand.mdcrd.#` Trajectory file(s) that contains only those ligand snapshots that will be processed by
-MMPBSA.py. (1)
-
-`_GMXMMPBSA_receptor.mdcrd.#` Trajectory file(s) that contains only those receptor snapshots that will be processed by
-MMPBSA.py. (1)
-
-`_GMXMMPBSA_complex_nc.#` Same as _GMXMMPBSA_complex.mdcrd.#, except in the NetCDF format. (1)
-
-`_GMXMMPBSA_receptor_nc.#` Same as _GMXMMPBSA_receptor.mdcrd.#, except in the NetCDF format. (1)
-
-`_GMXMMPBSA_ligand_nc.#` Same as _GMXMMPBSA_ligand.mdcrd.#, except in the NetCDF format. (1)
-
-`_GMXMMPBSA_dummycomplex.inpcrd` Dummy inpcrd file generated by _GMXMMPBSA_complexinpcrd.in for use with imin=5
-functionality in sander. (1)
-
-`_GMXMMPBSA_dummyreceptor.inpcrd` Same as above, but for the receptor. (1)
-
-`_GMXMMPBSA_dummyligand.inpcrd` Same as above, but for the ligand. (1)
-
-`_GMXMMPBSA_complex.pdb` Dummy PDB file of the complex required to set molecule up in nab programs
-
-`_GMXMMPBSA_receptor.pdb` Dummy PDB file of the receptor required to set molecule up in nab programs
-
-`_GMXMMPBSA_ligand.pdb` Dummy PDB file of the ligand required to set molecule up in nab programs
-
-`_GMXMMPBSA_complex_nm.mdcrd.#` Trajectory file(s) for each thread with snapshots used for normal mode calcula- tions on
-the complex. (1)
-
-`_GMXMMPBSA_receptor_nm.mdcrd.#` Trajectory file for each thread with snapshots used for normal mode calcula- tions on
-the receptor. (1)
-
-`_GMXMMPBSA_ligand_nm.mdcrd.#` Trajectory file for each thread with snapshots used for normal mode calculations on the
-ligand. (1)
-
-`_GMXMMPBSA_ptrajentropy.in` Input file that calculates the entropy via the quasi-harmonic approximation. This file is
-processed by ptraj. (2)
-
-`_GMXMMPBSA_avgcomplex.pdb` PDB file containing the average positions of all complex conformations processed by
-
-`_GMXMMPBSA_cenptraj.in.` It is used as the reference for the _GMXMMPBSA_ptrajentropy.in file above.
-(1)
-
-`_GMXMMPBSA_complex_entropy.out` File into which the entropy results from _GMXMMPBSA_ptrajentropy.in analysis on the
-complex are dumped. (1)
-
-`_GMXMMPBSA_receptor_entropy.out` Same as above, but for the receptor. (1)
-
-`_GMXMMPBSA_ligand_entropy.out` Same as above, but for the ligand. (1)
-
-`_GMXMMPBSA_ptraj_entropy.out` Output from running ptraj using _GMXMMPBSA_ptrajentropy.in. (1)
-
-`_GMXMMPBSA_complex_gb.mdout.#` sander output file containing energy components of all complex snapshots done in GB. (1)
-
-`_GMXMMPBSA_receptor_gb.mdout.#` sander output file containing energy components of all receptor snapshots done in GB. (
-1)
-
-`_GMXMMPBSA_ligand_gb.mdout.#` sander output file containing energy components of all ligand snapshots done in GB. (1)
-
-`_GMXMMPBSA_complex_pb.mdout.#` sander output file containing energy components of all complex snapshots done in PB. (1)
-
-`_GMXMMPBSA_receptor_pb.mdout.#` sander output file containing energy components of all receptor snapshots done in PB. (
-1)
-
-`_GMXMMPBSA_ligand_pb.mdout.#` sander output file containing energy components of all ligand snapshots done in PB. (1)
-
-`_GMXMMPBSA_complex_rism.out.#` rism3d.snglpnt output file containing energy components of all complex snap- shots done
-with 3D-RISM (1)
-
-`_GMXMMPBSA_receptor_rism.out.#` rism3d.snglpnt output file containing energy components of all receptor snap- shots
-done with 3D-RISM (1)
-
-`_GMXMMPBSA_ligand_rism.out.#` rism3d.snglpnt output file containing energy components of all ligand snapshots done with
-3D-RISM (1)
-
-`_GMXMMPBSA_pbsanderoutput.junk.#` File containing the information dumped by sander.APBS to STDOUT. (1)
-
-`_GMXMMPBSA_ligand_nm.out.#` Output file from mmpbsa_py_nabnmode that contains the entropy data for the ligand for all
-snapshots. (1)
-
-`_GMXMMPBSA_receptor_nm.out.#` Output file from mmpbsa_py_nabnmode that contains the entropy data for the receptor for
-all snapshots. (1)
-
-`_GMXMMPBSA_complex_nm.out.#` Output file from mmpbsa_py_nabnmode that contains the entropy data for the com- plex for
-all snapshots. (1)
-
-`_GMXMMPBSA_mutant_...` These files are analogs of the files that only start with `_GMXMMPBSA_` described above, but
-instead refer to the mutant system of alanine scanning calculations.
-
-`_GMXMMPBSA_*out.#` These files are thread-specific files. For serial simulations, only #=0 files are created. For
+* `xBFreE.log` This file contains the output coming from `xBFReE`.
+* `gb|pb|gbnsr6.mdin` Input file that controls the GB|PB|GBNSR6 calculation done in sander.
+* `(gb|pb|gbnsr6)_decomp_(com|rec|lig).mdin` Input file that controls the GB|PB|GBNSR6 decomp calculation done in sander.
+* `gb_qmmm_(com|rec|lig).mdin` Input file that controls the GB QM/MM calculation done in sander.
+* `(complex|receptor|ligand).mdcrd.#` Processed trajectory file(s).
+* `(complex|receptor|ligand).nc.#` Processed trajectory file(s) in the NetCDF format.
+* `dummy(complex|receptor|ligand).inpcrd` Dummy inpcrd file.
+* `(complex|receptor|ligand).pdb` Dummy PDB file 
+* `(complex|receptor|ligand)_nm.mdcrd.#` Processed trajectory file(s) for normal mode calculations.
+* `ptrajentropy.in` Input file that calculates the entropy via the quasi-harmonic approximation. This file is
+processed by `ptraj`.
+* `avgcomplex.pdb` PDB file containing the average positions of all complex conformations processed by
+* `cenptraj.in.` It is used as the reference for the `ptrajentropy.in` file above.
+* `(complex|receptor|ligand)_entropy.out` File into which the entropy results from `ptrajentropy.in` analysis are dumped.
+* `ptraj_entropy.out` Output from running `ptraj` using `ptrajentropy.in`.
+* `(complex|receptor|ligand)_(gb|pb|gbnsr6|rism).mdout.#` output file containing energy components of all snapshots 
+  done in GB|PB|GBNSR6|RISM.
+* `mutant_...` These files are analogs of the files described above, but instead refer to the mutant system of 
+  alanine scanning calculations.
+* `*out.#` These files are thread-specific files. For serial simulations, only #=0 files are created. For
 parallel, #=0 through NUM_PROC - 1 are created.
