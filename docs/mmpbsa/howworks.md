@@ -1,26 +1,24 @@
 ---
 template: main.html
-title: How gmx_MMPBSA works
+title: How xBFreE (MMPBSA) works
 ---
 
-# How **xBFreE** works
+# How **xBFreE** (MMPBSA) works
 
 xBFreE implements all the features in gmx_MMPBSA with support for GROMACS, AMBER, NAMD, and CHARMM. For now, this 
-includes only MMPBSA and its derivatives as methods for calculating binding free energy. We intend to implement 
-several more methods, such as Linear Interaction Energy (LIE), Free Energy Perturbation (FEP), Thermodynamics 
-Integration (TI), etc.
+includes only MMPBSA and its derivatives as methods for calculating binding free energy. 
 
-## gmx_MMPBSA general workflow
+## General workflow for MMPBSA calculations
 
-**xBFreE** functioning can be divided into 2 parts as shown in figure 1. In the first part, `Preparation`, the 
+MMPBSA calculations can be divided into 2 parts as shown in figure 1. In the first part, `Preparation`, the 
 topologies and trajectories are generated, among other elements depending on the calculations and MD program, such as 
 the mutants for the alanine/glycine scanning or the list of interacting residues during decomposition analysis. In 
 the second part, `Calculation`, the binding free energies and/or entropies are estimated using the selected models. 
 
-!!! info "For gmx_MMPBSA users"
-    Nota que el análisis de los resultados ahora está fuera del workflow de **xBFreE**. Ello se debe a que hemos 
-    separado la herramienta de análisis **xBFreE-Analyzer** (antiguamente gmx_MMPBSA_ana) como un módulo 
-    independiente. Consulta la documentación de [**xBFreE-Analyzer**]() para más información.   
+!!! gmx-mmpbsa "For gmx_MMPBSA users"
+    Note that the analysis of the results is now outside the **xBFreE** workflow. This is because we have 
+    separated the **xBFreE-Analyzer** (formerly gmx_MMPBSA_ana) analysis tool as a independent module. See the 
+    [**xBFreE-Analyzer**]() documentation for more information.   
 
 
 ```mermaid
@@ -33,13 +31,11 @@ flowchart TD
     C{{Ligand}} -->|MT| D
     C -->|MT| E
 
-    D[Topology]
-    D -->|Convert| I[Amber Topology]
+    D[Topology] --> N[Molecule Selection]
+    N -->|Convert| I[Amber Topology]
 
-    E[Trajectory] --> F[Dry trajectory?]
-    F -->|Yes| x["Clean up"]
-    x --> G["Dry Trajectory"]
-    F -->|no| G
+    E[Trajectory] --> F[Clean up]
+    F --> G[Fixed Trajectory]
     end
     G --> H
     I --> H
@@ -53,12 +49,12 @@ flowchart TD
     L --> M[Print final results]
 ```
 
-**Figure 1**. **xBFreE** general workflow
+**Figure 1**. **xBFreE** general workflow for MMPBSA calculations
 
 ## Required input files
 
-Actualmente, solo los campos de fuerza AMBER y CHARMM son soportados oficialmente. Dependiendo del programa de MD se 
-requieren uno o varios archivos diferentes.
+Currently, only AMBER and CHARMM force fields are officially supported. Depending on the MD program one or several 
+different files are required. 
 
 
 | MD Program\Flags |        **-cp**        |     **-cs**      |          **-ct**           |       **-cg**        | **-ci** | **-cr** |
@@ -72,10 +68,10 @@ requieren uno o varios archivos diferentes.
  are consistent.
 
 
-!!! info "For gmx_MMPBSA users"
-    Nota que la generación de la topología de Amber a partir de estructuras ya no es soportado. Ahora solo se 
-    requiere la topología, sin importar que campo de fuerzas o programa de MD se haya usado. Esto también elimina 
-    algunas flags y variables que generaban confusión, por ejemplo, la flag `-lm` y la variable `forcefields`. 
+!!! gmx-mmpbsa "For gmx_MMPBSA users!"
+    Note that the generation of the Amber topology from structures is no longer supported. Now only the topology is 
+    required, no matter which force field or MD program was used. This also removes some confusing flags and variables, 
+    for example the `-lm` flag and the `forcefields` variable.   
 
 
 ## Topology preparation

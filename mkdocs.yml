@@ -58,7 +58,7 @@ theme:
     - search.share
     - search.suggest
     # - header.autohide
-    - toc.integrate
+#    - toc.integrate
     - toc.follow
 
   palette:
@@ -194,9 +194,11 @@ nav:
   - MMPBSA:
       - Introduction: mmpbsa/introduction.md
       - xBFreE vs other program: mmpbsa/versus.md
+      - How it works: mmpbsa/howworks.md
       - Command-line: mmpbsa/command-line.md
       - Running MMPBSA calculations: mmpbsa/running_mmpbsa.md
       - The input file: mmpbsa/input_file.md
+      - PBRadii: mmpbsa/pbradii.md
       - The output file: mmpbsa/output.md
 #  - LIE:
 #      - Introduction: lie/introduction.md
