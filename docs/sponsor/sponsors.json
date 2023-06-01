@@ -1,0 +1,42 @@
+{
+   "gold": {
+      "desc": "Who fully trusts us",
+      "sponsors": {
+
+      },
+      "height": "125px"
+   },
+   "silver": {
+      "desc": "who trust us",
+      "sponsors": {
+      },
+      "height": "75px"
+   },
+   "bronze": {
+      "desc": "who encourages us to continue",
+      "sponsors": {
+      },
+      "height": "50px"
+   },
+   "donations": {
+      "desc": "Who recognizes our effort",
+      "sponsors": [
+
+      ],
+      "height": "25px"
+   },
+   "open-source": {
+      "desc": "Open Source Licenses",
+      "sponsors": {
+         "Jetbrains": {
+            "href": "#",
+            "avatar": "../assets/images/jetbrains-variant-4.png"
+         },
+         "Sourcery": {
+            "avatar": "../assets/images/sourcery.png",
+            "href": "#"
+         }
+      },
+      "height": "100px"
+   }
+}
