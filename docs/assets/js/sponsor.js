@@ -17,14 +17,8 @@ function loadSponsors() {
             premium_sponsor.setAttribute("class", "mdx-premium")
             article_sponsor.appendChild(premium_sponsor)
 
-            // console.log(data["gold"]["sponsors"])
-            // // Gold sponsors
-            // if (data["gold"]["sponsors"].length !== 0) {
-            //     const gold_text = document.createElement("div");
-            // }
             const ks = ["gold", "silver", "bronze", "open-source", "donations"]
             ks.forEach((item) => {
-              // console.log(data[item])
                 if (item === "donations") {
                     if (Object.keys(data[item].sponsors).length > 0) {
                         let pa = document.createElement("p")
@@ -59,7 +53,6 @@ function loadSponsors() {
                         s.appendChild(st)
                         premium_sponsor.appendChild(pa)
 
-                        console.log(Object.keys(data[item].sponsors), 'sponsors')
                         let skeys = Object.keys(data[item].sponsors)
                         let sp = document.createElement("p")
                         premium_sponsor.appendChild(sp)
@@ -83,78 +76,9 @@ function loadSponsors() {
                             si.setAttribute("style",`height: ${data[item]["height"]}`)
                             sa.appendChild(si)
                         })
-
-                        // let sponsorship = document.createElement("div")
-                        // sponsorship.setAttribute("class", "mdx-sponsorship")
-                        // article_sponsor.appendChild(sponsorship)
-                        // let sponsorship__list = document.createElement("div")
-                        // sponsorship__list.setAttribute("class", "mdx-sponsorship__list")
-                        // sponsorship.appendChild(sponsorship__list)
-                        //
-                        // data[item].sponsors.forEach((sponsor) => {
-                        //     let spit = document.createElement("a")
-                        //     spit.setAttribute("class", "mdx-sponsorship__item")
-                        //     spit.setAttribute("title", `@${sponsor}`)
-                        //     let spi = document.createElement("img")
-                        //     spi.setAttribute("src", `https://github.com/${sponsor}.png?size=30`)
-                        //     spit.appendChild(spi)
-                        //     sponsorship__list.appendChild(spit)
-                        // })
-
-
-
-
                     }
                 }
             })
-
-            // data.forEach((item) => {
-            //   console.log(Object.keys(item))
-            //
-            //     if (Object.keys(item.sponsors).length > 0 && item.type !== "donations") {
-            //         let pa = document.createElement("p")
-            //         let s = document.createElement('strong');
-            //         let st = document.createTextNode(`${item.desc}`)
-            //         pa.appendChild(s)
-            //         s.appendChild(st)
-            //         premium_sponsor.appendChild(pa)
-            //     }
-            //
-            //
-            // })
-
-
-
-            // const sponsors_container = document.querySelector('[data-md-component="xbfree-sponsor"]');
-            // data.forEach((item) => {
-            //     console.log(item)
-            //   let a = document.createElement('a');
-            //   let atext = document.createTextNode(`${item.new}`);
-            //   a.setAttribute('href', `${item.url}`);
-            //   a.setAttribute('class', "new-text");
-            //   a.appendChild(atext);
-            //   let li = document.createElement("li");
-            //   li.appendChild(a);
-            //   new_container.appendChild(li);
-            // })
-
-            // // get variables
-            // const root = document.documentElement;
-            // getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-            // let marqueeContent = document.querySelector("ul.marquee-content");
-            // root.style.setProperty("--marquee-elements", marqueeContent.children.length);
-            // let width = 0
-            // for(let i=0; i<marqueeContent.children.length - 1; i++) {
-            //   width = width + marqueeContent.children[i].offsetWidth
-            // }
-            // let viewportWidth = window.innerWidth;
-            //
-            // if (width/viewportWidth < 1) {
-            //     root.style.setProperty("--marquee-traslation", 100);
-            // } else {
-            //     root.style.setProperty("--marquee-traslation", width/viewportWidth * 100 +50);
-            // }
-            // root.style.setProperty("--marquee-animation-duration", 20 );
         })
 }
 
