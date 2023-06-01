@@ -1,4 +1,4 @@
-name: Documentation from Master (Develop) Branch
+name: xBFReE Project
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ jobs:
   updatedoc:
     runs-on: ubuntu-latest
     steps:
-      - name: Update doc
+      - name: Update project
         uses: actions/checkout@v2
         with:
            # Number of commits to fetch. 0 indicates all history. For mkdocs-git-revision-date-localized-plugin
