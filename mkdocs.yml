@@ -128,8 +128,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/xBFreEnergy
-  version:
-    provider: mike
   consent:
     title: Cookie consent
     description: >-
