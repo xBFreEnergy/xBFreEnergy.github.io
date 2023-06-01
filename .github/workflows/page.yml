@@ -3,32 +3,34 @@ on:
   push:
     branches:
       - master
+
 env:
   PYTHON_VERSION: 3.x
 
 jobs:
-  updatedoc:
+  documentation:
+    name: Build documentation
     runs-on: ubuntu-latest
     steps:
-      - name: Update project
+
+      - name: Checkout repository
         uses: actions/checkout@v2
         with:
            # Number of commits to fetch. 0 indicates all history. For mkdocs-git-revision-date-localized-plugin
            # Default: 1
            fetch-depth: 0
+
       - name: Set up Python runtime
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v1
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+
       - name: Install Python dependencies
         run: |
           pip install -r ./docs/requirements.txt
-      - name: Setup git config
-        run: |
-          git config user.name test
-          git config user.email bot@bot.com
       - name: Deploy documentation
         env:
           GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
         run: |
           mkdocs gh-deploy --force
+          mkdocs --version
