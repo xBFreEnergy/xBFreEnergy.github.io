@@ -2,11 +2,11 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="63.809502mm"
-   height="29.271383mm"
-   viewBox="0 0 63.809502 29.271383"
+   width="244.25145mm"
+   height="111.56242mm"
+   viewBox="0 0 244.25145 111.56242"
    version="1.1"
-   id="svg1587"
+   id="svg23018"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="logo.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -14,7 +14,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview1589"
+     id="namedview23020"
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
@@ -24,36 +24,45 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="4.1776837"
-     inkscape:cx="110.22855"
-     inkscape:cy="79.589559"
+     inkscape:zoom="0.73851712"
+     inkscape:cx="566.6761"
+     inkscape:cy="175.35139"
      inkscape:window-width="1920"
      inkscape:window-height="996"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g7677" />
+     inkscape:current-layer="g18486" />
   <defs
-     id="defs1584" />
+     id="defs23015" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-29.698567,-122.42629)">
+     transform="translate(48.764173,-108.36583)">
     <g
-       id="g7677">
+       id="g18486"
+       transform="matrix(0.26458333,0,0,0.26458333,1614.608,129.78128)"
+       inkscape:export-filename="../PycharmProjects/xBFreE/docs/assets/logo.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         style="fill:#fefefe;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-miterlimit:5"
+         id="path12260-9"
+         d="m -6267.5194,117.86064 c -35.7709,22.64045 -15.8638,63.80595 12.679,107.71767 44.3406,53.41635 4.7254,38.50757 52.3676,38.46375 83.2211,19.70092 92.478,69.49113 190.3218,74.6606 65.5676,10.8768 107.0176,-24.13927 157.5733,-62.72909 54.4769,-38.63104 131.1627,-23.08536 201.9926,-3.57647 76.9626,17.86197 116.0615,18.83586 195.1375,-8.64827 94.5176,-26.15799 103.5359,-140.83528 87.3957,-164.212406 15.6641,-84.771132 -14.4745,-97.3145302 -45.409,-119.097853 -77.0331,-23.777499 -92.6399,-18.579607 -161.3689,-2.733997 -21.8994,4.34112 -76.9254,-33.433292 -114.8647,-33.398282 -37.9393,0.035 -109.2183,47.560053 -148.0097,24.43276 -62.5154,-67.62265 -164.2295,-51.13343 -227.8015,-11.17849 -23.4096,-51.94374 -80.2824,-45.68206 -149.7453,-14.51123 -60.3114,30.64418 -38.0007,73.671315 2.3073,134.981778 z"
+         sodipodi:nodetypes="ccccccccccsccccc" />
       <g
-         id="g9139"
-         transform="translate(0.52916663)"
+         id="g9139-6-5"
+         transform="matrix(12.299145,0,0,12.299145,-6606.6069,-1563.4234)"
          style="fill:#a63fd9;fill-opacity:1">
         <text
            xml:space="preserve"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:Z003;-inkscape-font-specification:'Z003, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583"
            x="26.274858"
            y="143.43738"
-           id="text113"><tspan
+           id="text113-32-0"><tspan
              sodipodi:role="line"
-             id="tspan111"
+             id="tspan111-0-9"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:Z003;-inkscape-font-specification:'Z003, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;stroke-width:0.264583"
              x="26.274858"
              y="143.43738">x</tspan></text>
@@ -62,9 +71,9 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Tiresias Signfont Z';-inkscape-font-specification:'Tiresias Signfont Z, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583"
            x="47.165863"
            y="142.44366"
-           id="text113-3"><tspan
+           id="text113-3-6-6"><tspan
              sodipodi:role="line"
-             id="tspan111-9"
+             id="tspan111-9-1-3"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Tiresias Signfont Z';-inkscape-font-specification:'Tiresias Signfont Z, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;stroke-width:0.264583"
              x="47.165863"
              y="142.44366">B</tspan></text>
@@ -73,9 +82,9 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Tiresias Signfont Z';-inkscape-font-specification:'Tiresias Signfont Z, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583"
            x="57.441872"
            y="142.44366"
-           id="text113-3-0"><tspan
+           id="text113-3-0-5-85"><tspan
              sodipodi:role="line"
-             id="tspan111-9-9"
+             id="tspan111-9-9-54-61"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Tiresias Signfont Z';-inkscape-font-specification:'Tiresias Signfont Z, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;stroke-width:0.264583"
              x="57.441872"
              y="142.44366">Fre</tspan></text>
@@ -84,9 +93,9 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Tiresias Signfont Z';-inkscape-font-specification:'Tiresias Signfont Z, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583"
            x="83.123192"
            y="142.44366"
-           id="text113-3-0-4"><tspan
+           id="text113-3-0-4-7-1"><tspan
              sodipodi:role="line"
-             id="tspan111-9-9-5"
+             id="tspan111-9-9-5-6-5"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:'Tiresias Signfont Z';-inkscape-font-specification:'Tiresias Signfont Z, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a63fd9;fill-opacity:1;stroke-width:0.264583"
              x="83.123192"
              y="142.44366">E</tspan></text>

@@ -1,7 +1,7 @@
 
 # Project information
-site_name: xBFreE Documentation
-site_url: https://xBFreEnergy.github.io/dev/
+site_name: xBFreE Project
+site_url: https://xBFreEnergy.github.io
 site_author: Mario S. and Mario E. Valdés-Tresanco
 site_description: >-
   xBFreE is a tool for Binding Free Energy calculations
@@ -63,14 +63,14 @@ theme:
 
   palette:
     - scheme: default
-      primary: black
-      accent: black
+      primary: blue
+      accent: blue
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     - scheme: slate
-      primary: black
-      accent: black
+      primary: blue
+      accent: blue
       toggle:
         icon: material/weather-night
         name: Switch to light mode
@@ -162,6 +162,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -186,83 +189,19 @@ markdown_extensions:
 # Page tree
 nav:
   - Home: index.md
-  - Getting started:
-    - Getting started: getting-started/getting-started.md
-    - xBFreE in a nutshell: getting-started/summary.md
-    - Installation: getting-started/installation.md
-    - Command-line: getting-started/command-line.md
-  - MMPBSA:
-      - Introduction: mmpbsa/introduction.md
-      - xBFreE vs other program: mmpbsa/versus.md
-      - How it works: mmpbsa/howworks.md
-      - Command-line: mmpbsa/command-line.md
-      - Running MMPBSA calculations: mmpbsa/running_mmpbsa.md
-      - The input file: mmpbsa/input_file.md
-      - PBRadii: mmpbsa/pbradii.md
-      - The output file: mmpbsa/output.md
-#  - LIE:
-#      - Introduction: lie/introduction.md
-#      - xBFreE vs other program: lie/versus.md
-#      - Command-line: lie/command-line.md
-#      - Running LIE calculations: lie/running_lie.md
-#      - The input file: lie/input_file.md
-#      - The output file: lie/output.md
-#  - FEP:
-#      - Introduction: fep/introduction.md
-#      - xBFreE vs other program: fep/versus.md
-#      - Command-line: fep/command-line.md
-#      - Running LIE calculations: fep/running_fep.md
-#      - The input file: fep/input_file.md
-#      - The output file: fep/output.md
-#  - TI:
-#      - Introduction: ti/introduction.md
-#      - xBFreE vs other program: ti/versus.md
-#      - Command-line: ti/command-line.md
-#      - Running LIE calculations: ti/running_ti.md
-#      - The input file: ti/input_file.md
-#      - The output file: ti/output.md
+  - Project:
+      - Project: project/project.md
+      - Roadmap: project/roadmap.md
+      - People: project/people.md
 
-  - Examples:
-    - Examples: examples/README.md
-    - gmx_MMPBSA_test: examples/gmx_MMPBSA_test.md
-    - Systems:
-      - Protein-protein: examples/Protein_protein/README.md
-      - Protein-ligand: examples/Protein_ligand/ST/README.md
-      - Protein-DNA: examples/Protein_DNA/README.md
-      - Protein-glycan: examples/Protein_glycan/README.md
-      - Membrane proteins: examples/Protein_membrane/README.md
-      - Metalloprotein-ligand: examples/Metalloprotein_ligand/README.md
-      - Multicomponent system: examples/Comp_receptor/README.md
-      - COVID-19 related proteins:
-          - Info: examples/COVID-19_related_proteins/README.md
-          - Main protease: examples/COVID-19_related_proteins/Main_protease_7l5d/README.md
-          - Papain-like protease: examples/COVID-19_related_proteins/Papain-like_protease_7koj/README.md
-          - S1-ACE2 complex: examples/COVID-19_related_proteins/S1-ACE2_complex_7dmu/README.md
-          - S1 RBD with antibody: examples/COVID-19_related_proteins/S1_RBD_with_antibody_6zlr/README.md
-    - CHARMMff Support:
-        - Protein-ligand: examples/Protein_ligand_CHARMMff/README.md
-        - Protein-ligand complex embedded in membrane: examples/Protein_membrane_CHARMMff/README.md
-        - Protein-ligand with LPH particles (ST): examples/Protein_ligand_LPH_atoms_CHARMMff/README.md
-    - OPLSff Support:
-        - Protein-protein: examples/OPLS/protein_protein/README.md
-    - Analysis:
-        - Single Trajectory Protocol: examples/Protein_ligand/ST/README.md
-        - Multiple Trajectory Protocol: examples/Protein_ligand/MT/README.md
-        - BFE calculations:
-            - BFE calculation with GB: examples/Protein_ligand/ST/README.md
-            - BFE calculation with GBNSR6: examples/GBNSR6/README.md
-            - BFE calculation with Linear PB: examples/Linear_PB_solver/README.md
-            - BFE calculation with NonLinear PB : examples/NonLinear_PB_solver/README.md
-            - BFE calculation with 3D-RISM: examples/3D-RISM/README.md
-        - Alanine scanning: examples/Alanine_scanning/README.md
-        - Decomposition analysis: examples/Decomposition_analysis/README.md
-        - Entropy calculations:
-            - Interaction Entropy: examples/Entropy_calculations/Interaction_Entropy/README.md
-            - nmode Entropy: examples/Entropy_calculations/nmode/README.md
-            - C2 Entropy calculations: examples/Entropy_calculations/C2_Entropy/README.md
-        - Stability calculations: examples/Stability/README.md
-        - QM/MMGBSA: examples/QM_MMGBSA/README.md
-        - Correlation: examples/Correlation/README.md
+  - Apps: apps.md
+  - Sponsors: sponsor/index.md
+  - News:
+      - News: news/index.md
+
+
+
+
 
   - Help:
     - Help: Q&A/README.md
@@ -283,5 +222,6 @@ extra_javascript:
   - assets/js/termynal.js
   - assets/js/custom.js
   - assets/js/mathjax.js
+  - assets/js/sponsor.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
