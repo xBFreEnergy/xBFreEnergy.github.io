@@ -1,5 +1,5 @@
 function loadSponsors() {
-    fetch("sponsors.json")
+    fetch("../assets/data/sponsors.json")
         .then(response => response.json())
         .then(data => {
             if (data.length === 0) {
