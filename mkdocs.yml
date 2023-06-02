@@ -178,26 +178,11 @@ nav:
       - Project: project/project.md
       - Roadmap: project/roadmap.md
       - People: project/people.md
-
   - Apps: apps.md
   - Sponsors: sponsor/index.md
   - News:
       - News: news/index.md
-
-
-
-
-
-  - Help:
-    - Help: Q&A/README.md
-    - Installation: Q&A/installation.md
-    - OS issues: Q&A/OS_issues.md
-    - Calculations: Q&A/calculations.md
-    - Info:
-      - Changelog: changelog.md
-      - Compatibility: compatibility.md
-      - Private Policy: private_policy.md
-      - Tags: tags.md
+  - Help: help.md
   - Cite xBFreE: cite_us.md
 
 extra_css:
