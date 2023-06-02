@@ -1,10 +1,10 @@
 
 # Project information
 site_name: xBFreE Project
-site_url: https://xBFreEnergy.github.io
+site_url: https://xbfreenergy.github.io
 site_author: Mario S. and Mario E. Valdés-Tresanco
 site_description: >-
-  xBFreE is a tool for Binding Free Energy calculations
+  xBFreE is a project to unify the methods for Binding Free Energy calculations in robust and easy-to-use tools.
 
 # Repository
 repo_name: xBFreEnergy.github.io
@@ -24,7 +24,6 @@ theme:
   name: material
   logo: assets/logo.svg
   custom_dir: docs/overrides
-
 
   # 404 page
   static_templates:
@@ -75,18 +74,6 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
 
-#    - scheme: default
-#      primary: black
-#      accent: black
-#      toggle:
-#        icon: material/weather-sunny
-#        name: Switch to dark mode
-#    - scheme: slate
-#      primary: black
-#      accent: black
-#      toggle:
-#        icon: material/weather-night
-#        name: Switch to light mode
   font:
     text: Roboto
     code: Roboto Mono
