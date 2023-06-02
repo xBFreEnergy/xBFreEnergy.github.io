@@ -1,67 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://xBFreEnergy.github.io/</loc>
+         <loc>https://xbfreenergy.github.io/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/apps/</loc>
+         <loc>https://xbfreenergy.github.io/apps/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/changelog/</loc>
+         <loc>https://xbfreenergy.github.io/changelog/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/cite_us/</loc>
+         <loc>https://xbfreenergy.github.io/cite_us/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/private_policy/</loc>
+         <loc>https://xbfreenergy.github.io/help/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/support/</loc>
+         <loc>https://xbfreenergy.github.io/private_policy/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/tags/</loc>
+         <loc>https://xbfreenergy.github.io/support/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/news/</loc>
+         <loc>https://xbfreenergy.github.io/tags/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/project/people/</loc>
+         <loc>https://xbfreenergy.github.io/news/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/project/project/</loc>
+         <loc>https://xbfreenergy.github.io/project/people/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/project/roadmap/</loc>
+         <loc>https://xbfreenergy.github.io/project/project/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/sponsor/</loc>
+         <loc>https://xbfreenergy.github.io/project/roadmap/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://xBFreEnergy.github.io/tags/</loc>
+         <loc>https://xbfreenergy.github.io/sponsor/</loc>
+         <lastmod>2023-06-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xbfreenergy.github.io/tags/</loc>
          <lastmod>2023-06-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
