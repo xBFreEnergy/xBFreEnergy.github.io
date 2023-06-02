@@ -1,14 +1,3 @@
-//
-// var jsonData = null;
-//
-// fetch('assets/data/news.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     jsonData = data;
-//     console.log(jsonData);
-//   });
-
-
 function loadNews() {
         fetch('/assets/data/news.json')
           .then(response => response.json())
@@ -35,7 +24,7 @@ function loadNews() {
                   let marqueeContent = document.querySelector("ul.marquee-content");
                   root.style.setProperty("--marquee-elements", marqueeContent.children.length);
                   let width = 0
-                  for (let i = 0; i < marqueeContent.children.length - 1; i++) {
+                  for (let i = 0; i < marqueeContent.children.length; i++) {
                       width = width + marqueeContent.children[i].offsetWidth
                   }
                   let viewportWidth = window.innerWidth;
@@ -43,7 +32,7 @@ function loadNews() {
                   if (width / viewportWidth < 1) {
                       root.style.setProperty("--marquee-traslation", 100);
                   } else {
-                      root.style.setProperty("--marquee-traslation", width / viewportWidth * 100 + 50);
+                      root.style.setProperty("--marquee-traslation", (width + 10 * marqueeContent.children.length) / marqueeContent.offsetWidth * 100);
                   }
                   root.style.setProperty("--marquee-animation-duration", 20);
               }
