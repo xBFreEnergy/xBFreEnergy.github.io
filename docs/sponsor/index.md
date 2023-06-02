@@ -11,6 +11,7 @@ sponsoring.
 
 [:octicons-heart-fill-24:{ .heart } &nbsp; Join our awesome sponsors](#){ .md-button .md-button--primary .mdx-sponsorship-button }
 
+## Donations
 Like us, many researchers do not have their own resources or cannot finance programs external to their research. We 
 appreciate any contribution, no matter how small. 
 
