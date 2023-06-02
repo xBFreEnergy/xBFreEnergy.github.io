@@ -19,11 +19,11 @@ appreciate any contribution, no matter how small.
 ---
 
 ## Sponsors
-_xBFReE Project and all its tools are completely free._
+_xBFreE Project and all its tools are completely free._
 
 Sponsors are people, institutions, or other entities that believe our work is relevant to them and the community. 
 Its main benefit will be priority attention in issues solving and new features implementation. But the idea of 
-funding is to support the xBFReE development for the community.
+funding is to support the xBFreE development for the community.
 
 _**Thank you to everyone for your bit for this project.**_
 

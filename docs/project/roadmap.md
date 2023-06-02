@@ -12,9 +12,9 @@ like LIE, FEP, and TI.
 ```mermaid
 gantt
     dateFormat  YYYY-MM-DD
-    title       xBFReE Roadmap
+    title       xBFreE Roadmap
     
-    section xBFReE Package
+    section xBFreE Package
         Publish v1.0.0rc1 release   :milestone, 2023-07-01, 0d
         Publish stable release (v1.0.0)   :milestone, 2023-07-16, 0d
         Publish v1.1.0rc1 release   :milestone, 2023-08-01, 0d
@@ -22,7 +22,7 @@ gantt
         Publish v2.0.0rc1 release   :milestone, 2023-09-16, 0d
         Publish stable release (v2.0.0)   :milestone, 2023-10-16, 0d
     
-    section xBFReE Development
+    section xBFreE Development
         Develop and test   :            des1, 2023-05-01, 2023-06-30
         Fix bugs and typos    :            des2, 2023-07-01, 2023-07-15
         MMPBSA (APBS) :            des1, 2023-07-15, 2023-07-31
