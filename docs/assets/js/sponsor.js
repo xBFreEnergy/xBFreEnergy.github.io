@@ -1,7 +1,7 @@
 function loadSponsors() {
     const element = document.querySelector('[data-md-component="xbfree-sponsor"]');
     if (element) {
-        fetch("../assets/data/sponsors.json")
+        fetch("/assets/data/sponsors.json")
             .then(response => response.json())
             .then(data => {
                 if (data.length === 0) {
@@ -72,7 +72,7 @@ function loadSponsors() {
                                     avatar = data[item].sponsors[sk]["avatar"]
                                 } else {
                                     let imgn = sk.toLowerCase().replace(" ", "-")
-                                    avatar = `https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/.github/assets/sponsors/sponsor-${imgn}.png`
+                                    avatar = `https://raw.githubusercontent.com/xBFreEnergy/xBFreEnergy.github.io/master/.github/assets/sponsors/sponsor-${imgn}.png`
                                 }
                                 si.setAttribute("src", `${avatar}`)
                                 si.setAttribute("style", `height: ${data[item]["height"]}`)
