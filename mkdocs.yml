@@ -185,7 +185,9 @@ nav:
   - Sponsors: sponsor/index.md
   - News:
       - News: news/index.md
-  - Help: help.md
+  - Help:
+    - Help: help/help.md
+    - Policy: help/private_policy.md
   - Cite xBFreE: cite_us.md
 
 extra_css:

@@ -5,9 +5,9 @@ title: Private Policy
 
 # Private Policy
 
-Effective date: May 13, 2021
+Effective date: May 1, 2023
 
-Welcome to **xBFreE** Documentation. We believe in protecting the privacy of our users, and readers.
+Welcome to **xBFreE** Project. We believe in protecting the privacy of our users, and readers.
 
 ## The short version
 We use Google Analytics as a third party tracking service. We only collect the usage data (may include information 
@@ -17,34 +17,35 @@ device identifiers and other diagnostic data) through Google Analytics which hel
 for their commercial purposes; and we only use it as this Privacy Policy describes.**
 
 ## Our services
-**xBFreE** Documentation is made up of:
+**xBFreE** Project Documentation is made up of:
 
-https://valdes-tresanco-ms.github.io/gmx_MMPBSA
-This is a website aimed at people that use **xBFreE**. This Privacy Policy applies to this site in full without 
-reservation.
+https://xbfreenergy.github.io/
 
-All use of **xBFreE** Documentation is subject to this Privacy Policy.
+This is a website aimed at people who want to learn about the **xBFreE** Project . This Privacy Policy applies to 
+this site in full without reservation.
 
-## What information **xBFreE** Documentation and why
+All use of **xBFreE** Project Documentation is subject to this Privacy Policy.
+
+## What information **xBFreE** Project Documentation and why
 
 We use Google Analytics as a third party tracking service, but we don’t use it to track you individually or collect 
 your User Personal Information. We use Google Analytics to collect information about how our website performs and 
-how our users, in general, navigate through and use **xBFreE** Documentation. This helps us evaluate our users’ use of 
-**xBFreE** Documentation; compile statistical reports on activity; and improve our content and website performance.
+how our users, in general, navigate through and use **xBFreE** Project Documentation. This helps us evaluate our users’ use of 
+**xBFreE** Project Documentation; compile statistical reports on activity; and improve our content and website performance.
 
 Google Analytics gathers certain simple, non-personally identifying information over time, such as your IP address, 
 browser type, internet service provider, referring and exit pages, time stamp, and similar data about your use of 
-**xBFreE** Documentation.
+**xBFreE** Project Documentation.
 
 We will not allow any third party to, use the Google Analytics tool to track our users individually; collect any 
 User Personal Information other than IP address; or correlate your IP address with your identity. Google provides 
 further information about its own privacy practices and offers a browser add-on to opt out of Google Analytics tracking.
 
 ## Why do we collect this?
-We collect this information to better understand how our website visitors use **xBFreE** Documentation, and to monitor 
+We collect this information to better understand how our website visitors use **xBFreE** Project Documentation, and to monitor 
 and protect the security of the website.
 
-## What information **xBFreE** Documentation does not collect
+## What information **xBFreE** Project Documentation does not collect
 We do not intentionally collect sensitive personal information, such as social security numbers, genetic data, 
 health information, or religious information.
 
