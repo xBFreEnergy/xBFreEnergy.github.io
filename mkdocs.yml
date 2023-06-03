@@ -122,8 +122,9 @@ extra:
     title: Cookie consent
     description: >-
       We use Google Analytics as a third party tracking service. We do not share, sell, rent, or trade this information 
-      with third parties for their commercial purposes; and we only use it as this Privacy Policy describes. This helps
-      us improve documentation and have usage statistics to apply for financing. Thank you.
+      with third parties for their commercial purposes; and we only use it as this 
+      <a href="/help/private_policy/">Privacy Policy</a> describes. This helps us improve documentation and have 
+      usage statistics to apply for financing. Thank you.
     actions:
       - accept
 # Extensions
