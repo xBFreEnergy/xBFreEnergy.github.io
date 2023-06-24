@@ -153,12 +153,15 @@ a.internal-link::after {
   aspect-ratio: 1.5;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 60rem) {
     .card {
       height: 150px;
     }
   .wrapper {
     height: 150px;
+  }
+  .animated_logo {
+      width: 15rem;
   }
 }
 
@@ -173,7 +176,7 @@ a.internal-link::after {
     margin-left: auto;
     margin-right: auto;
     max-width: 20rem;
-    min-width: 200px;
+    min-width: 150px;
 }
 /*############################################*/
 /* home config for material */
@@ -182,7 +185,7 @@ a.internal-link::after {
             url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1123 258'><path d='M1124,2c0,0 0,256 0,256l-1125,0l0,-48c0,0 16,5 55,5c116,0 197,-92 325,-92c121,0 114,46 254,46c140,0 214,-167 572,-166Z' style='fill: hsla(0, 0%, 100%, 1)' /></svg>") no-repeat bottom,
             linear-gradient(to bottom, var(--md-primary-fg-color), #ab47bd 99%, var(--md-default-bg-color) 99%);
     padding-top: 1rem;
-    height: 80vh;
+    height: 82vh;
 }
 
 [data-md-color-scheme=slate] .mdx-container {
@@ -219,18 +222,19 @@ a.internal-link::after {
         align-items: stretch;
         display: flex;
     }
-
     .mdx-hero__content {
         margin-top: 3.5rem;
         max-width: 19rem;
         padding-bottom: 14vw;
         text-align: left;
     }
-
     .mdx-hero__image {
         order: 1;
         transform: translateX(4rem);
         width: 38rem;
+    }
+    .mdx-container {
+        height: 80vh;
     }
 }
 

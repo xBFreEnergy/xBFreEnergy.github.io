@@ -89,9 +89,9 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
-  - git-committers:
-      repository: xBFreEnergy/xBFreEnergy.github.io
-      branch: master
+#  - git-committers:
+#      repository: xBFreEnergy/xBFreEnergy.github.io
+#      branch: master
   - minify:
       minify_html: true
 
