@@ -1,13 +1,15 @@
 # Roadmap
-Our roadmap focuses on first implementing methods that are widely used. Initially, starting with gmx_MMPBSA, we 
-implemented most of the methods derived from PB. However, in the future, we want to implement several more methods, 
-like LIE, FEP, and TI.
+Our roadmap prioritizes the implementation of widely used methods. Currently, we have successfully implemented 
+gmx_MMPBSA, which incorporates several methods derived from PB and other implicit solvent-based approaches. 
+However, our future plans involve expanding our method offerings to include additional approaches such as 
+LIE, FEP, and TI.
 
 !!! important
-    It is important to clarify that our roadmap is tentative but does not guarantee that it is exact. As we mentioned, 
-    we do not have financing, so we can only dedicate our free time to the project development. If possible, 
-    consider [becoming a sponsor](../../sponsor#how-to-become-a-sponsor). Shortly, we plan to apply for financing that 
-    will allow full-time development and therefore have more exact release dates.   
+    Please note that our roadmap is subject to change and should be considered tentative. We cannot guarantee exact 
+    timelines as we currently lack financial resources and can only dedicate our free time to project development. 
+    However, we encourage you to consider becoming a sponsor to support our efforts. By becoming a sponsor, we can 
+    aim for full-time development and provide more accurate release dates in the future. For more information on 
+    sponsorship opportunities, please visit [becoming a sponsor](../../sponsor#how-to-become-a-sponsor).
 
 ```mermaid
 gantt

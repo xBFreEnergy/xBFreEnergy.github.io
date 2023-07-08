@@ -8,5 +8,6 @@ a project dedicated to implementing, testing, and developing BFE methods describ
 
 
 ## Motivation
-We believe that an idea, no matter how much potential it may have, dies in a scientific article if it cannot be 
-used in a simple and accessible way. 
+
+We strongly believe that even the most promising idea loses its potential if it remains confined to a scientific 
+article and cannot be utilized in a simple and accessible manner.

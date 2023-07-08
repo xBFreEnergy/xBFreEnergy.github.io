@@ -10,14 +10,11 @@
 
         ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
     
-    ### Mario S. Valdés Tresanco
+    ### [Mario S. Valdés Tresanco](https://www.researchgate.net/profile/Mario-Valdes-Tresanco-2)
     _PhD in Modeling and Scientific Computing_<br>
     Colombia    
 
     **Creator and Principal Developer**
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non 
-    consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
 
 !!! info ""
 
@@ -25,14 +22,11 @@
         
         ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
     
-    ### Mario E. Valdés Tresanco
-    _PhD Student in Proteomic_ <br>
+    ### [Mario E. Valdés Tresanco](https://www.researchgate.net/profile/Mario-Valdes-Tresanco)
+    _PhD Student Biophysical-Chemistry_ <br>
     University of Calgary, Canada.
 
     **Creator and Principal Developer**
-    
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non 
-    consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
 
 !!! info ""
 
@@ -40,29 +34,23 @@
 
         ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
     
-    ### Pedro A. Valiente
-    _PhD_<br>
+    ### [Pedro A. Valiente](https://www.researchgate.net/profile/Pedro-Valiente)
+    _PhD in Biochemistry_<br>
     University of Toronto, Canada.
 
     **Academic Assessor**
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non 
-    consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
-
 !!! info ""
 
     !!! info inline end ""
 
         ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
     
-    ### Ernesto Moreno Frías
-    _PhD_<br>
+    ### [Ernesto Moreno Frías](https://www.researchgate.net/profile/Ernesto-Moreno-Frias)
+    _PhD in Biology_<br>
     University of Medellín, Colombia.
 
     **Academic Assessor**
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non 
-    consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
 
 
 ## Contributors
