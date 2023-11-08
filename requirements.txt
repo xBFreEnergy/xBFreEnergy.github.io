@@ -6,3 +6,4 @@ mike>=1.1.2
 mkdocs-git-committers-plugin-2
 bs4
 lxml<5
+neoteroi-mkdocs>1,<2
