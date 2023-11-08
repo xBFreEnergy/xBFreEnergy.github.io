@@ -1,36 +1,81 @@
 # Roadmap
-Our roadmap prioritizes the implementation of widely used methods. Currently, we have successfully implemented 
-gmx_MMPBSA, which incorporates several methods derived from PB and other implicit solvent-based approaches. 
-However, our future plans involve expanding our method offerings to include additional approaches such as 
-LIE, FEP, and TI.
+Our roadmap prioritizes the implementation of widely used methods. We have successfully implemented gmx_MMPBSA, 
+which incorporates several PB-derived methods and other implicit solvent-based approaches. xBFreE is an evolution of 
+gmx_MMPBSA, so we will work to optimize it, facilitating the implementation of new methods and their respective 
+analysis. This tentative roadmap may change as we develop the points indicated.   
+We have set a goal that allows us to optimize and expand the methods for calculating endpoint binding free energy 
+available to all users regardless of the MD engine they select. However, our plans involve expanding our method 
+offering to include additional approaches such as FEP and TI.  
 
 !!! important
-    Please note that our roadmap is subject to change and should be considered tentative. We cannot guarantee exact 
-    timelines as we currently lack financial resources and can only dedicate our free time to project development. 
-    However, we encourage you to consider becoming a sponsor to support our efforts. By becoming a sponsor, we can 
-    aim for full-time development and provide more accurate release dates in the future. For more information on 
+    You can to consider becoming a sponsor to support our efforts and promote the project. By becoming a sponsor, we 
+    can aim for full-time development and provide more accurate release dates in the future. For more information on 
     sponsorship opportunities, please visit [becoming a sponsor](../../sponsor#how-to-become-a-sponsor).
 
-```mermaid
-gantt
-    dateFormat  YYYY-MM-DD
-    title       xBFreE Roadmap
-    
-    section xBFreE Package
-        Publish v1.0.0rc1 release   :milestone, 2023-07-01, 0d
-        Publish stable release (v1.0.0)   :milestone, 2023-07-16, 0d
-        Publish v1.1.0rc1 release   :milestone, 2023-08-01, 0d
-        Publish v1.1.0 stable release   :milestone, 2023-08-16, 0d
-        Publish v2.0.0rc1 release   :milestone, 2023-09-16, 0d
-        Publish stable release (v2.0.0)   :milestone, 2023-10-16, 0d
-    
-    section xBFreE Development
-        Develop and test   :            des1, 2023-05-01, 2023-06-30
-        Fix bugs and typos    :            des2, 2023-07-01, 2023-07-15
-        MMPBSA (APBS) :            des1, 2023-07-15, 2023-07-31
-        Fix bugs and typos  :            des1, 2023-08-01, 2023-08-15
-        LIE (D-Model)  :            des1, 2023-08-15, 2023-09-15
-        Fix bugs and typos     :            des2, 2023-09-16, 2023-10-15
 
+::timeline::
 
-```
+- content: |
+    
+    **xBFreE**  
+    - Full portability of gmx_MMPBSA to xBFreE   
+    - Update dependencies and fix bugs  
+    - Expand calculations for AMBER, NAMD and CHARMM MD engines  
+    - Documentation, tutorials, and examples for every MD engine implementation   
+    - Enhancement issues reported previously in gmx_MMPBSA (Easy to implement)   
+    - New atomic radii definition implementation  
+    **xBFreE-Analyzer**  
+    - Full portability of gmx_MMPBSA_ana to xBFreE-Analyzer   
+    - Update dependencies and fix bugs  
+    - Documentation, tutorials, and examples   
+    - Compatibility with gmx_MMPBSA output files   
+    - Enhancement issues reported previously in gmx_MMPBSA (Easy to implement)   
+  icon: ':material-rocket-launch-outline:'
+  sub_title: 1st semester  
+  title: Portability
+- content: |
+    **xBFreE**  
+    - Code optimization  
+    - Unit test implementation  
+    - New API develop (begin)  
+    - Enhancement issues reported previously in gmx_MMPBSA (Easy to implement)   
+    **xBFreE-Analyzer**  
+    - Code optimization  
+    - Unit test implementation  
+    - New API develop (begin)  
+    - Plotly support (begin)  
+    - Predefined chart format implementation  
+    - Enhancement issues reported previously in gmx_MMPBSA (Easy to implement)   
+  icon: ':simple-googleoptimize:'
+  sub_title: 2nd semester  
+  title: Optimization
+- content: |
+    **xBFreE**  
+    - PBDelphi model implementation  
+    - APBS model implementation  
+    - Add 3D-RISM-AI  
+    - Add SASA-Based Model for Conformational Entropy Calculations  
+    - Add support for explicit water molecules    
+    - Documentation for the new methods  
+    - LIE model parametrization (begin)  
+    **xBFreE-Analyzer**  
+    - New API implementation  
+    - Plotly support (implementation ?)    
+    - Extension for Jupyter Notebook
+  icon: ':material-gauge-empty:'
+  sub_title: 3rd semester
+  title: New features
+- content: |
+    **xBFreE**  
+    - LIE-D model implementation  
+    - New LIE model parametrization (implementation ?)  
+    - Documentation    
+    **xBFreE-Analyzer**  
+    - LIE model implementation  
+    - Implementation of Common MD calculations such as RMSD, RMSF, etc.    
+    - Documentation    
+  icon: ':material-plus-box:'
+  sub_title: 4th semester
+  title: New features
+
+::/timeline::

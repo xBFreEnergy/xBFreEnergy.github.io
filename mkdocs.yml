@@ -129,6 +129,8 @@ extra:
       - accept
 # Extensions
 markdown_extensions:
+  - neoteroi.cards
+  - neoteroi.timeline
   - admonition
   - abbr
   - pymdownx.snippets:
@@ -181,11 +183,10 @@ nav:
   - Project:
       - Project: project/project.md
       - Roadmap: project/roadmap.md
-      - People: project/people.md
   - Apps: apps.md
   - Sponsors: sponsor/index.md
-  - News:
-      - News: news/index.md
+#  - News:
+#      - News: news/index.md
   - Help:
     - Help: help/help.md
     - Policy: help/private_policy.md
@@ -194,6 +195,7 @@ nav:
 extra_css:
   - assets/stylesheets/termynal.css
   - assets/stylesheets/custom.css
+  - assets/stylesheets/neoteroi.css
 extra_javascript:
   - assets/js/termynal.js
   - assets/js/custom.js
