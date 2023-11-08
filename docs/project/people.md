@@ -4,53 +4,37 @@
 
 ## Know our Team
 
-!!! info ""
+::cards:: cols=2
 
-    !!! info inline end ""
+- title: Mario S. Valdés Tresanco, PhD
+  content: PhD in Modeling and Scientific Computing <br>
+           Project Leader <br> 
+           Colombia 
+  image: ../assets/xbfree_logo.svg
+  url: https://www.researchgate.net/profile/Mario-Valdes-Tresanco-2
 
-        ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
-    
-    ### [Mario S. Valdés Tresanco](https://www.researchgate.net/profile/Mario-Valdes-Tresanco-2)
-    _PhD in Modeling and Scientific Computing_<br>
-    Colombia    
+- title: Mario E. Valdés Tresanco
+  content: PhD Student in Biophysical-Chemistry<br>
+           Project co-Leader <br> 
+           Canada
+  image: ../assets/xbfree_logo.svg
+  url: https://www.researchgate.net/profile/Mario-Valdes-Tresanco
 
-    **Creator and Principal Developer**
+- title: Ernesto Moreno, PhD
+  content: PhD in Biophysics <br>
+           Scientific Adviser <br> 
+           Colombia
+  image: ../assets/xbfree_logo.svg
+  url: https://www.researchgate.net/profile/Ernesto-Moreno-Frias
 
-!!! info ""
+- title: Pedro A. Valiente, PhD
+  content: PhD in Biochemistry <br>
+           Scientific Adviser <br> 
+           Canada
+  image: ../assets/xbfree_logo.svg
+  url: https://www.researchgate.net/profile/Pedro-Valiente
 
-    !!! info inline end ""
-        
-        ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
-    
-    ### [Mario E. Valdés Tresanco](https://www.researchgate.net/profile/Mario-Valdes-Tresanco)
-    _PhD Student Biophysical-Chemistry_ <br>
-    University of Calgary, Canada.
-
-    **Creator and Principal Developer**
-
-!!! info ""
-
-    !!! info inline end ""
-
-        ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
-    
-    ### [Pedro A. Valiente](https://www.researchgate.net/profile/Pedro-Valiente)
-    _PhD in Biochemistry_<br>
-    University of Toronto, Canada.
-
-    **Academic Assessor**
-
-!!! info ""
-
-    !!! info inline end ""
-
-        ![Image title](../assets/xbfree_logo.svg){ align=left width=250}
-    
-    ### [Ernesto Moreno Frías](https://www.researchgate.net/profile/Ernesto-Moreno-Frias)
-    _PhD in Biology_<br>
-    University of Medellín, Colombia.
-
-    **Academic Assessor**
+::/cards::
 
 
 ## Contributors
