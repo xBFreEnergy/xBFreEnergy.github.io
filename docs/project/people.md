@@ -22,14 +22,14 @@
 
 - title: Ernesto Moreno, PhD
   content: PhD in Biophysics <br>
-           Scientific Adviser <br> 
+           Scientific Advisor <br> 
            Colombia
   image: ../assets/xbfree_logo.svg
   url: https://www.researchgate.net/profile/Ernesto-Moreno-Frias
 
 - title: Pedro A. Valiente, PhD
   content: PhD in Biochemistry <br>
-           Scientific Adviser <br> 
+           Scientific Advisor <br> 
            Canada
   image: ../assets/xbfree_logo.svg
   url: https://www.researchgate.net/profile/Pedro-Valiente
