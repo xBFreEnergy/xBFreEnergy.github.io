@@ -185,6 +185,7 @@ nav:
       - Governance: project/governance.md
       - People: project/people.md
       - Roadmap: project/roadmap.md
+      - Contributing: project/CONTRIBUTING.md
   - Apps: apps.md
   - Sponsors: sponsor/index.md
 #  - News:
