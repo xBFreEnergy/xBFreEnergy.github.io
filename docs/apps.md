@@ -5,7 +5,7 @@
 !!! info ""
 
     !!! info inline end ""
-        <a href="#">
+        <a href="https://xbfreenergy.github.io/xBFreE/">
         ![Image title](/assets/xbfree_logo.svg){ align=left width=400}
         </a>
 
@@ -21,7 +21,7 @@
 !!! info  ""
     
     !!! info inline end ""
-        <a href="#">
+        <a href="https://xbfreenergy.github.io/xBFreE-Analyzer/">
         ![Image title](/assets/xbfree-ana_logo.svg){ align=left width=400}
         </a>
 
