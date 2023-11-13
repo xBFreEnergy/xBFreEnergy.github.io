@@ -1,16 +1,17 @@
-msvaldes:
-  name: Mario S. Valdés, PhD
-  description: xBFreE Project Leader
-  avatar: https://github.com/valdes-tresanco-ms.png
+authors:
+  msvaldes:
+    name: Mario S. Valdés, PhD
+    description: xBFreE Project Leader
+    avatar: https://github.com/valdes-tresanco-ms.png
 
-mevaldes:
-  name: Mario E. Valdés
-  description: xBFreE Project co-Leader
-  avatar: https://github.com/marioernestovaldes.png
+  mevaldes:
+    name: Mario E. Valdés
+    description: xBFreE Project co-Leader
+    avatar: https://github.com/marioernestovaldes.png
 
-xbfree_team:
-  name: xBFreE Team
-  description: Creator, xBFreE Project
-  avatar: https://github.com/valdes-tresanco-ms.png
+  xbfree_team:
+    name: xBFreE Team
+    description: Creator, xBFreE Project
+    avatar: https://github.com/valdes-tresanco-ms.png
 
 
