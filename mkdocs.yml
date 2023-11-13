@@ -94,6 +94,13 @@ plugins:
 #      branch: master
   - minify:
       minify_html: true
+  - blog:
+      post_date_format: medium
+      categories_allowed:
+        - News
+        - Announcements
+        - Tutorials
+        - Use cases
 
 # Customization
 extra:
@@ -194,6 +201,8 @@ nav:
     - Help: help/help.md
     - Policy: help/private_policy.md
   - Cite xBFreE: cite_us.md
+  - Blog:
+      - blog/index.md
 
 extra_css:
   - assets/stylesheets/termynal.css
