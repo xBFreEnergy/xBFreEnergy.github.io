@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://xbfreenergy.github.io/blog/2023/11/13/blog-test/</loc>
+         <lastmod>2023-11-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://xbfreenergy.github.io/help/help/</loc>
          <lastmod>2023-11-13</lastmod>
          <changefreq>daily</changefreq>
@@ -82,6 +87,16 @@
     </url>
     <url>
          <loc>https://xbfreenergy.github.io/sponsor/</loc>
+         <lastmod>2023-11-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xbfreenergy.github.io/blog/archive/2023/</loc>
+         <lastmod>2023-11-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://xbfreenergy.github.io/blog/category/news/</loc>
          <lastmod>2023-11-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
